@@ -1,17 +1,13 @@
 <?php
+  require_once 'Common.php';
   session_start();
-  $levels = array(1=>"簡単",2=>"やや簡単",3=>"普通",4=>"やや難しい",5=>"難しい");
-  $units = array("正負の数","文字式","方程式","関数","平面図形","空間図形","資料の整理");
   if(isset($_SESSION["NAME"])){
     $userName = $_SESSION['NAME'];
   }else{
       $userName = "ゲスト";
       $loginCheck = "none";
     }
-
-  $works = array("問題0", "問題1", "問題2", "問題3");
   $key = array_rand($works, 1);
-
 ?>
 
 <!DOCTYPE html>
@@ -46,7 +42,7 @@
       <label class="control-label">難易度を選択してください</label>
       <div class="form-group buttons">
       <?php
-      foreach ($levels as $key => $val) {
+      foreach ($work_levels as $key => $val) {
         $check = "";
         if($key === 1){
           $check = 'checked' ;
