@@ -1,0 +1,17 @@
+table th{
+  background: gray;
+}
+
+table td {
+  corder:solid 1px black;
+}
+
+table {
+  border:solid 1px black;
+  width:100%;
+  text-align: center;
+}
+
+.btn{
+  margin: 10px;
+}

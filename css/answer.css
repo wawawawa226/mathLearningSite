@@ -1,0 +1,77 @@
+@charset "UTF-8";
+
+input[type=radio] {
+  display: none; /* ラジオボタンを非表示にする */
+}
+input[type="radio"]:checked + label {
+background: #31A9EE;/* マウス選択時の背景色を指定する */
+color: #ffffff; /* マウス選択時のフォント色を指定する */
+transition: 0.75s ;
+}
+
+.form-check-label:hover {
+background-color: #E2EDF9; /* マウスオーバー時の背景色を指定する */
+}
+
+.form-check-label {
+  display: block; /* ブロックレベル要素化する */
+  float: left; /* 要素の左寄せ・回り込を指定する */
+  margin: 5px; /* ボックス外側の余白を指定する */
+  width: 9.2em; /* ボックスの横幅を指定する */
+  height: 45px; /* ボックスの高さを指定する */
+  padding-left: 5px; /* ボックス内左側の余白を指定する */
+  padding-right: 5px; /* ボックス内御右側の余白を指定する */
+  color: gray; /* フォントの色を指定 */
+  text-align: center; /* テキストのセンタリングを指定する */
+  line-height: 45px; /* 行の高さを指定する */
+  cursor: pointer; /* マウスカーソルの形（リンクカーソル）を指定する */
+  border: 2px solid gray;/* ボックスの境界線を実線で指定する */
+  border-radius: 5px; /* 角丸を指定する */
+}
+h2{
+  font-size: 1.5rem;
+  text-align: center;
+  color:gray;
+  margin: 0 2em 0 0 ;
+}
+
+#unit {
+  width:200px;
+}
+
+.buttons{
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.control-label{
+  font-weight: bold;
+  color: gray;
+  border-bottom: solid 2px skyblue;
+  margin-bottom: 2em;
+}
+
+#workDisplay{
+  background: #EB8686;
+  display: block; /* ブロックレベル要素化する */
+  margin: 5px; /* ボックス外側の余白を指定する */
+  width: 9.2em; /* ボックスの横幅を指定する */
+  height: 47px; /* ボックスの高さを指定する */
+  padding-left: 5px; /* ボックス内左側の余白を指定する */
+  padding-right: 5px; /* ボックス内御右側の余白を指定する */
+  color: #fff; /* フォントの色を指定 */
+  font-weight:bold;
+  text-align: center; /* テキストのセンタリングを指定する */
+  line-height: 45px; /* 行の高さを指定する */
+  cursor: pointer; /* マウスカーソルの形（リンクカーソル）を指定する */
+  border: gray solid 2px;
+  border-radius: 5px; /* 角丸を指定する */
+}
+#workDisplay:hover{
+  background: #f5a2a2;
+  transition: 0.2s;
+}
+button:focus{
+  outline: 0px;
+}

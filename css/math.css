@@ -1,0 +1,33 @@
+@charset "UTF-8";
+h3 {
+  background:linear-gradient(transparent 70%, #a7d6ff 70%);
+  margin: 1em 0em;
+}
+
+.box{
+  background-color: #dadada;
+  border-radius: 10px;
+  padding: 2em;
+  margin: 20px;
+  }
+
+ul, ol {
+ background: #fffde8;
+ box-shadow: 0px 0px 0px 10px #fffde8;/*線の外側*/
+ border: dashed 2px #ffb03f;/*破線*/
+ border-radius: 9px;
+ margin-left: 10px;/*はみ出ないように調整*/
+ margin-right: 10px;/*はみ出ないように調整*/
+ padding: 0.5em 0.5em 0.5em 2em;
+}
+
+ul li, ol li {
+ line-height: 1.5;
+ padding: 0.5em 0;
+}
+
+.que{
+  margin: 1em;
+  border:2px solid skyblue;
+  border-radius: 9px;
+}
