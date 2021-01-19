@@ -1,0 +1,33 @@
+table th{
+  background: gray;
+}
+
+table td {
+  corder:solid 1px black;
+}
+
+table {
+  border:solid 1px black;
+  width:100%;
+  text-align: center;
+}
+
+.btn{
+  margin: 10px;
+}
+
+th:nth-child(1){
+    width: 1em;
+}
+/* th:nth-child(2){
+    width: 40%;
+}
+th:nth-child(3){
+    width: 40%;
+} */
+th:nth-child(4){
+    width: 4em;
+}
+th:nth-child(5){
+    width: 5em;
+}

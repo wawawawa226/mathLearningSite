@@ -1,0 +1,224 @@
+@charset "UTF-8";
+
+* {
+   box-sizing: border-box;
+}
+a:hover{
+	text-decoration: none ;
+  transition: 0.75s ;
+}
+
+body {
+   margin-top:100px;
+   padding: 0;
+   font-family: "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro W3", メイリオ, Meiryo, "ＭＳＰゴシック", "Helvetica Neue", Helvetica, Arial, sans-serif;
+   /* background-color: #e6e6e6; */
+   letter-spacing : 0.2em;
+}
+header {
+   padding: 20px 10% 10px 10%;
+   position: fixed;
+   top: 0;
+   width: 100%;
+   background-color: white;
+   display: flex;
+   align-items: center;
+   border-bottom: 2px solid #e6e6e6;
+}
+header h1 {
+   margin:0 2em 0 0;
+   padding: 0;
+   font-size: 30px;
+}
+header a {
+   text-decoration: none;
+   color: #4b4b4b;
+}
+header a:hover{
+  color: black;
+}
+header nav {
+   margin: 0 0 0 auto;
+}
+header ul {
+   list-style: none;
+   margin: 0;
+   display: flex;
+}
+header li {
+   margin: 0 0 0 15px;
+   font-size: 14px;
+}
+
+.sub-title{
+  font-size: 1.375rem;
+  padding: 0 8px 8px ;
+  border-bottom: 2px #0bd solid;
+  font-weight:normal;
+  margin-top: 20px;
+}
+aside p {
+  padding: 12px 10px;
+}
+
+.sub-menu{
+  margin-bottom: 60px;
+  list-style: none;
+}
+
+.sub-menu li{
+  border-bottom: 1px #ddd solid;
+}
+ul{
+  padding-inline-start: 0px;
+}
+.sub-menu a{
+  color: gray;
+  padding: 10px;
+  display: block;
+}
+.sub-menu a:hover{
+  color: #0bd;
+}
+
+main{
+  width: 74%;
+  order: 2;
+}
+
+aside{
+  width: 20%;
+  order: 1;
+}
+
+
+.mypage-contents{
+  display: flex;
+  justify-content: space-between;
+  margin:0px 10% 50px 10%;
+}
+.greet p{
+  margin-top: 1em;
+}
+.greet{
+  margin-left: 1em;
+}
+.item{
+  margin: 3em 0;
+  padding: 12px 15px;
+  color: #777;
+  background: #fafafa;
+  border: 1px solid #ddd;
+}
+
+.tab{
+  font-size: 1.5em;
+  margin-right: 3em;
+  color: gray;
+  border-bottom: 2px gray solid;
+}
+.tab:hover{
+  cursor: pointer;
+  color: black;
+}
+
+.tabs{
+  display: flex;
+  justify-content: flex-start;
+  margin-top:50px;
+}
+.tab-content{
+  display: none;
+  height: 25rem;
+  text-align: center;
+
+}
+.tab-content-checked{
+  display:block;
+}
+
+.tab-checked{
+  color: black;
+  border-bottom: 2px black solid;
+
+}
+.tab p{
+  display: inline;
+}
+
+.content-none{
+  font-size: 1.5em;
+  color: gray;
+  font-weight: bold;
+  padding:10rem 0px;
+  }
+
+  footer{
+   background: gray;
+   text-align: center;
+   padding: 26px 0 ;
+  }
+
+  footer p{
+    color: #fff;
+    font-size:0.875rem;
+  }
+
+.form-box{
+  width: 33%;
+  margin: 0 auto;
+  padding: 1em 2em;
+  max-width: 400px;
+  border: 1px solid lightgray;
+  border-radius: 5px;
+}
+
+.control-label{
+  font-weight: bold;
+  color: gray;
+  border-bottom: solid 2px skyblue;
+  margin-top: 2em;
+}
+
+.form-box h3{
+  font-weight: bold;
+  color: gray;
+}
+.form-box button{
+  font-weight: bold;
+}
+.form-box-sub{
+  width: 33%;
+  margin: 0 auto;
+  max-width: 400px;
+  text-align: center;
+  padding-top: 1em;
+}
+
+.form-box-sub h3 {
+  position: relative;
+  display: inline-block;
+  padding: 0 55px;
+  font-size: 1em;
+}
+
+.form-box-sub h3:before, .form-box-sub h3:after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  display: inline-block;
+  width: 45px;
+  height: 1px;
+  background-color: gray;
+}
+
+.form-box-sub h3:before {
+  left:0;
+}
+.form-box-sub h3:after {
+  right: 0;
+}
+
+.form-box-sub a {
+  color: black;
+}
