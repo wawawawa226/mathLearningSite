@@ -2,9 +2,9 @@
 session_start();
 
 if(isset($_SESSION["NAME"])){
-  $userName = $_SESSION['NAME'];
+  $userName = $_SESSION['NAME']."さん";
 }else{
-    $userName = "ゲスト";
+    $userName = "ログインしていません";
     $loginCheck = "none";
   }
 
@@ -52,7 +52,7 @@ if(isset($_SESSION["NAME"])){
 
 <div class="item tab-content" id="content-info">
   <p class="content-none"><i class="far fa-file-alt"></i> <?php echo $userName?></p>
-  <a href="logout.php">ログアウト</a>
+  <?php if(isset($_SESSION["NAME"])){echo "<a href=\"logout.php\">ログアウト</a>" ;} ?>
 </div>
 
 
