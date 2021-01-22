@@ -1,5 +1,6 @@
 <?php
 session_start();
+require_once ('Common.php');
 $_SESSION['login_error'] = "";
 
 function h($var) //HTMLでのエスケープ処理をする関数
@@ -10,23 +11,14 @@ function h($var) //HTMLでのエスケープ処理をする関数
     return htmlspecialchars($var,ENT_QUOTES,'UTF-8');
   }
 }
-
-
-
-// if( $mysqli->connect_errno ) {
-// echo $mysqli->connect_errno . ' : ' . $mysqli->connect_error;
-// }
-// $mysqli->set_charset('utf8');
-//
-// $email = $_POST['email'] ;
-//
-// $sql = "SELECT * FROM user_info WHERE mail='$email'";
-//
-// $res = $mysqli->query($sql);
-//
-//
-// $data = $res->fetch_assoc();
-
+if(isset($_POST['email'])){
+  $email = $_POST['email'] ;
+  $dbh = db_connect();
+  $prepare = $dbh->prepare("SELECT * FROM user_info WHERE mail=:email");
+  $prepare->bindValue(':email',(string)$email,PDO::PARAM_STR);
+  $prepare->execute();
+  $data = $prepare->fetch(PDO::FETCH_ASSOC);
+}
 
 //emailがDB内に存在しているか確認
 if (!isset($data['mail'])) {
