@@ -1,10 +1,16 @@
 <?php
-  require_once ('Common.php');
-  $id = $_GET['id'];
+session_start();
+require_once ('Common.php');
+if(isset($_SESSION['id'])){
+  $id = $_SESSION['id'];
   $dbh = db_connect();
   $res = $dbh->prepare('DELETE FROM work_book WHERE work_number  = :id');
   $res->bindValue(':id',(int)$id,PDO::PARAM_INT);
   $res->execute();
+}else{
+  header("Location:" . $url_mypage );
+  exit();
+}
 ?>
 
 <!DOCTYPE html>

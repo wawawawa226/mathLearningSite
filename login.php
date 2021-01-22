@@ -33,6 +33,7 @@ if (password_verify("$pass", $data['password'])) {
   // ログイン成功
   session_regenerate_id(true); //session_idを新しく生成し、置き換える
   $_SESSION['NAME'] = $data['user_name'];
+  $_SESSION['id'] = $data['user_id'];
   header("Location:" . $url_mypage );
   exit();
 } else {
