@@ -23,8 +23,8 @@ if(isset($_POST['email'])){
 //emailがDB内に存在しているか確認
 if (!isset($data['mail'])) {
   $_SESSION['login_error'] = "エラー";
-  header("Location: http://wawawawa.pigboat.jp/samurai/login-form.php?email=$email");
-  return false;
+  header("Location:" . $url_loginForm );
+  exit();
 }
 
 $pass = $_POST['pass'];
@@ -33,12 +33,12 @@ if (password_verify("$pass", $data['password'])) {
   // ログイン成功
   session_regenerate_id(true); //session_idを新しく生成し、置き換える
   $_SESSION['NAME'] = $data['user_name'];
-  header('Location: http://wawawawa.pigboat.jp/samurai/mypage.php');
-  exit;
+  header("Location:" . $url_mypage );
+  exit();
 } else {
   $_SESSION['login_error'] = "エラー";
-  header("Location: http://wawawawa.pigboat.jp/samurai/login-form.php?email=$email");
-  return false;
+  header("Location:" . $url_loginForm );
+  exit();
 }
 
 

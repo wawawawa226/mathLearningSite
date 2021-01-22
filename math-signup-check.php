@@ -64,9 +64,8 @@
     if($check_data_name["count(*)"] !== 0 or $check_data_mail["count(*)"] !== 0){
 
       // 名前またはメールが登録済みである場合、エラーメッセージを格納して入力画面に戻す
-      // header("Location: http://wawawawa.pigboat.jp/samurai/math-sign-up.php");
       header("Location:" . $url_signUp );
-      return false;
+      exit();
 
     }else{
       // 名前とメールアドレスがどちらも登録済みでない場合、登録処理のためにセキュリティ対策をしておく

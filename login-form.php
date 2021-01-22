@@ -1,5 +1,6 @@
 <?php
 session_start();
+require_once ('Common.php');
 $error = "";
   function h($var) //HTMLでのエスケープ処理をする関数
   {

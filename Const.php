@@ -11,4 +11,6 @@
   $units = array("正負の数","文字式","方程式","関数","平面図形","空間図形","資料の整理");
   $works = array("問題0", "問題1", "問題2", "問題3");
   $url_signUp = "http://wawawawa.pigboat.jp/mathLearningSite/math-sign-up.php";
+  $url_mypage = "http://wawawawa.pigboat.jp/mathLearningSite/mypage.php";
+  $url_loginForm = "http://wawawawa.pigboat.jp/mathLearningSite/login-form.php";
 ?>
