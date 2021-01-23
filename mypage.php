@@ -1,13 +1,14 @@
 <?php
 session_start();
-
+require_once ('Common.php');
 if(isset($_SESSION["NAME"])){
   $userName = $_SESSION['NAME'];
 }else{
     $userName = "ゲスト";
     $loginCheck = "none";
   }
-
+  $loginCheck = "none";
+  print_r($_SESSION);
 ?>
 
 <!DOCTYPE html>
@@ -31,37 +32,37 @@ if(isset($_SESSION["NAME"])){
     </header>
 
     <div class="mypage-contents wrapper">
-<main>
+      <main>
 
 
-<div class="tabs">
+        <div class="tabs">
 
-<p class="tab tab-checked" id="tab-note"><i class="fas fa-book-open"></i> 学習ノート</p>
-<p class="tab" id="tab-result"><i class="far fa-file-alt"></i> 得点管理</p>
-<p class="tab" id="tab-info"><i class="fas fa-cog"></i> 会員情報の変更</p>
-</div>
+          <p class="tab tab-checked" id="tab-note"><i class="fas fa-book-open"></i> 学習ノート</p>
+          <p class="tab" id="tab-result"><i class="far fa-file-alt"></i> 得点管理</p>
+          <p class="tab" id="tab-info"><i class="fas fa-cog"></i> 会員情報の変更</p>
+        </div>
 
-<div class="item tab-content tab-content-checked" id="content-note">
-  <p class="content-none"><i class="fas fa-book-open"></i> まだノートはありません</p>
+        <div class="item tab-content tab-content-checked" id="content-note">
+          <p class="content-none"><i class="fas fa-book-open"></i> まだノートはありません</p>
+        </div>
 
-</div>
+        <div class="item tab-content" id="content-result">
+          <p class="content-none"><i class="far fa-file-alt"></i> まだテスト結果がありません</p>
+        </div>
 
-<div class="item tab-content" id="content-result">
-  <p class="content-none"><i class="far fa-file-alt"></i> まだテスト結果がありません</p>
-</div>
-
-<div class="item tab-content" id="content-info">
-  <p class="content-none"><i class="far fa-file-alt"></i> <?php echo $userName?></p>
-  <a href="logout.php">ログアウト</a>
-</div>
+        <div class="item tab-content" id="content-info">
+          <p class="content-none"><i class="far fa-file-alt"></i> <?php echo $userName?></p>
+          <p><a href="user_edit.php">会員情報を変更する</a></p>
+          <p><a href="logout.php">ログアウト</a></p>
+        </div>
 
 
-</main>
+      </main>
 
-<aside>
-  <?php include __DIR__ . '/sidebar.php';?>
-</aside>
-  </div>
+      <aside>
+        <?php include __DIR__ . '/sidebar.php';?>
+      </aside>
+    </div>
 
-</body>
+  </body>
 </html>

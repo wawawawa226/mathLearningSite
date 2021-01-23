@@ -1,3 +1,6 @@
+<?php
+$loginCheck = "";
+?>
 <!DOCTYPE html>
 <html lang="ja" dir="ltr">
   <head>
@@ -18,6 +21,7 @@ if(isset($_SESSION["NAME"])){
     $userName = "ゲスト";
     $loginCheck = "none";
   }
+
 if($loginCheck == "none"){
 // ログインしていない場合、ログインリンクを設置
 // echo"<br><a class=\"btn btn-success\" href=\"login-form.php\" role=\"button\">ログイン</a>";

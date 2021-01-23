@@ -12,8 +12,7 @@ $error = "";
   }
 
 
-  $email = $_GET['email'];
-  if($_SESSION['login_error'] == "エラー"){
+  if(isset($_SESSION['login_error'])){
     $_SESSION['login_error'] = "";
     $error = "<p class=\"error_login\"><i class=\"fas fa-exclamation-triangle\">
     </i>メールアドレスまたはパスワードが間違っています。</p>";
@@ -40,7 +39,7 @@ $error = "";
         <?php echo $error ;?>
           <div class="form-group">
             <label class="control-label" for="email">メールアドレス</label>
-            <input type="email" class="form-control" id="email" name="email" value="<?php echo $email;?>" required>
+            <input type="email" class="form-control" id="email" name="email" value="<?php if(isset($email)){echo $email;}?>" required>
             <p>guest@taro.dt</p>
             <div class="error" id="error_mail" style="display:none;">メールアドレスが入力されていません</div>
           </div>

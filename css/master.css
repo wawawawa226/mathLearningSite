@@ -84,6 +84,7 @@ ul{
 main{
   width: 74%;
   order: 2;
+  margin-top:50px;
 }
 
 aside{
@@ -125,7 +126,6 @@ aside{
 .tabs{
   display: flex;
   justify-content: flex-start;
-  margin-top:50px;
 }
 .tab-content{
   display: none;
