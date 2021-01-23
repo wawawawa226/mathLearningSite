@@ -7,7 +7,8 @@ if(isset($_SESSION["NAME"])){
     $userName = "ゲスト";
     $loginCheck = "none";
   }
-
+  $loginCheck = "none";
+  print_r($_SESSION);
 ?>
 
 <!DOCTYPE html>
