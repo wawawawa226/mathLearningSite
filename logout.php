@@ -1,7 +1,7 @@
 <?php
 session_start();
 $output = '';
-if (isset($_SESSION["NAME"])) {
+if (isset($_SESSION['name'])) {
   $output = 'Logoutしました。';
 } else {
   $output = 'SessionがTimeoutしました。';

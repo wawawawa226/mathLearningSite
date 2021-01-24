@@ -1,8 +1,8 @@
 <?php
 session_start();
 require_once ('Common.php');
-if(isset($_SESSION["NAME"])){
-  $userName = $_SESSION['NAME'];
+if(isset($_SESSION['name'])){
+  $userName = $_SESSION['name'];
 }else{
     $userName = "ゲスト";
     $loginCheck = "none";

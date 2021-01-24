@@ -1,5 +1,6 @@
 <?php
   require_once ('Common.php');
+  session_start();
   $check_data_mail = "";
 
   // nameが空でない、つまり正規のルートでアクセスされた場合に登録処理を行う。
@@ -17,12 +18,11 @@
     //$check_dataのカウントが 0 （データが重複していない） なら情報をDBに登録
     if($check_data_mail["count(*)"] == 0){
       $pass1 = $_POST["pass1"];
-      $pass2 = $_POST["pass2"];
       $age = $_POST["age"];
       $mathLevel = $_POST["math-level"];
       $mathLike = $_POST["math-like"];
       $club = $_POST["club"];
-      $name = htmlspecialchars($name,ENT_QUOTES,'UTF-8'); //文字列に変換（セキュリティ対策）
+      $userName = htmlspecialchars($userName,ENT_QUOTES,'UTF-8'); //文字列に変換（セキュリティ対策）
       $email = htmlspecialchars($email,ENT_QUOTES,'UTF-8'); //文字列に変換（セキュリティ対策）
       $pass1 = htmlspecialchars($pass1,ENT_QUOTES,'UTF-8'); //文字列に変換（セキュリティ対策）
 
@@ -41,10 +41,21 @@
 
       //session_idを新しく生成し、置き換える
       session_regenerate_id(true);
-      $_SESSION['NAME'] = $userName;
+      // DB登録後、user_idを取り出してセッションに保存する
+      $prepare = $dbh->prepare("SELECT user_id FROM user_info WHERE user_name = :name AND mail = :mail");
+      $prepare->bindValue(':name',(string)$userName,PDO::PARAM_STR);
+      $prepare->bindValue(':mail',(string)$email,PDO::PARAM_STR);
+      $prepare->execute();
+      $res = $prepare->fetch(PDO::FETCH_ASSOC);
+      $_SESSION = array();
+      $_SESSION['name'] = $userName;
+      $_SESSION['id'] = $res['user_id'];
+      $judge = "完了" ;
+      $pageFlag = 0 ;
+    }else{
+      $pageFlag = 1;
+      $judge = "失敗";
     }
-    $judge = "完了" ;
-    $pageFlag = 0 ;
   }else{
     $pageFlag = 1;
     $judge = "失敗";
@@ -76,10 +87,7 @@
     <div class="mypage-contents wrapper">
     <main>
     <h3>登録が完了しました</h3>
-    <?php   print 'はじめまして、';
-            print $userName;
-            print 'さん！';
-    ?>
+    <p>はじめまして、<?php echo $_SESSION['name']."さん" ; ?></p>
 
     <a class="btn btn-success" href="math-sign-up.php" role="button">新規作成</a>
     <a class="btn btn-primary" href="user-list.php" role="button">ユーザー一覧</a>

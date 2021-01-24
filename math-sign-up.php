@@ -9,7 +9,7 @@
                 "math_like"=>"",
               );
 
-  // SESSSIONに値が入っている場合、つまりsignup-checkから戻っってきた場合、値の保持のため$dataに代入する
+  // SESSSIONに値が入っている場合、つまりsignup-checkから戻ってきた場合、値の保持のため$dataに代入する
   if(isset($_SESSION['name'])){
     $data["user_name"] = $_SESSION['name'];
   }

@@ -1,15 +1,15 @@
 <?php
   require_once 'Common.php';
   session_start();
-  if(isset($_SESSION["NAME"])){
+  if(isset($_SESSION['name'])){
     // ログインしている場合
-    $userName = $_SESSION['NAME'];
+    $userName = $_SESSION['name'];
   }else{
     // ログインしていない場合、名前をゲストにする
       $userName = "ゲスト";
       $loginCheck = "none";
     }
-    
+
   $key = array_rand($works, 1);
 ?>
 
