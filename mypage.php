@@ -1,20 +1,18 @@
 <?php
 session_start();
 require_once ('Common.php');
-$page_flag = 0 ;
+
+// ログイン状態のチェック
 if(isset($_SESSION['id'])){
+  // ログイン状態
   $userName = $_SESSION['name'];
 }else{
-    $userName = "ゲスト";
-    $loginCheck = "none";
+  // 未ログイン状態
+  $userName = "ゲスト";
+  $loginCheck = "false";
 }
-$loginCheck = "none";
+
 print_r($_SESSION);
-
-if(isset($_SESSION['message'])){
-  $page_flag = 1 ;
-}
-
 
 ?>
 
@@ -38,14 +36,19 @@ if(isset($_SESSION['message'])){
     <div class="mypage-contents wrapper">
       <main>
         <!-- エラーメッセージがある場合、上部に表示して破棄する -->
-        <?php if(isset($_SESSION['message'])):?>
-          <div class="container">
-            <?php echo $_SESSION['message'];?>
-            <?php unset($_SESSION['message']);?>
+        <?php if( isset( $_SESSION['message'] ) ):?>
+          <div class="container mb-5 border p-1">
+            <div class="text-center">
+              <?php echo $_SESSION['message'];?>
+              <?php unset($_SESSION['message']);?>
+            </div>
           </div>
         <?php endif;?>
 
-        <a class="btn btn-info btn-block mb-5" href="guest_login.php">ゲストログイン</a>
+        <!-- 未ログイン状態の場合、ゲストログインボタンを表示 -->
+        <?php if( !isset( $_SESSION['id'] ) ): ?>
+          <a class="btn btn-info btn-block mb-5" href="guest_login.php">ゲストログイン</a>
+        <?php endif;?>
 
         <div class="tabs">
 
