@@ -15,8 +15,8 @@ $loginCheck = "";
   <a href="mypage.php">数学学習サイト</a>
 </h1>
 <?php
-if(isset($_SESSION["NAME"])){
-  $userName = $_SESSION['NAME'];
+if(isset($_SESSION['name'])){
+  $userName = $_SESSION['name'];
 }else{
     $userName = "ゲスト";
     $loginCheck = "none";
