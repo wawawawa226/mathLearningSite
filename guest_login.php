@@ -1,0 +1,18 @@
+<?php
+require_once ('Common.php');
+session_start();
+if(!isset($_SESSION['id'])){
+  session_regenerate_id(true); //session_idを新しく生成し、置き換える
+  $_SESSION = array();
+  $_SESSION['name'] = "ゲストユーザー";
+  $_SESSION['id'] = 73;
+  $_SESSION['message'] = "ゲストログインに成功しました";
+  header("Location:" . $url_mypage );
+  exit();
+}else{
+  $_SESSION['message'] = "既にログイン中のため、ゲストログインはできません。";
+  header("Location:" . $url_mypage );
+  exit();
+}
+
+?>
