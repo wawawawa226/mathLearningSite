@@ -5,7 +5,7 @@
 }
 a:hover{
 	text-decoration: none ;
-  transition: 0.75s ;
+  transition: 0.25s ;
 }
 
 body {
@@ -84,7 +84,7 @@ ul{
 main{
   width: 74%;
   order: 2;
-  
+
 }
 
 aside{
