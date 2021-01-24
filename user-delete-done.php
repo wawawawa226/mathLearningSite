@@ -3,7 +3,6 @@ require_once ('Common.php');
 session_start();
 if(isset($_SESSION['id'])){
   $id = $_SESSION['id'];
-  $id = $_GET['id'];
   $dbh = db_connect();
   $res = $dbh->prepare('DELETE FROM user_info WHERE user_id = :id');
   $res->bindValue(':id',(int)$id,PDO::PARAM_INT);
