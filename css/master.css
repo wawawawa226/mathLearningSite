@@ -5,7 +5,7 @@
 }
 a:hover{
 	text-decoration: none ;
-  transition: 0.75s ;
+  transition: 0.25s ;
 }
 
 body {
@@ -84,7 +84,7 @@ ul{
 main{
   width: 74%;
   order: 2;
-  margin-top:50px;
+
 }
 
 aside{
@@ -221,4 +221,10 @@ aside{
 
 .form-box-sub a {
   color: black;
+}
+
+.graybold{
+  font-weight: bold;
+  color: gray;
+  border-bottom: solid 2px skyblue;
 }

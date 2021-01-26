@@ -41,11 +41,11 @@ echo
 </div>
 <nav>
   <ul>
-    <li><a href="mypage.php">マイページ</a></li>
+    <li><a href="/mathLearningSite/mypage.php">マイページ</a></li>
     <!-- <li><a href="mypage.php">問題一覧</a></li> -->
-    <li><a href="workbook-list.php">問題一覧</a></li>
+    <li><a href="/mathLearningSite/workbook-list.php">問題一覧</a></li>
     <!-- <li><a href="mypage.php">テストを受ける</a></li> -->
-    <li><a href="answer.php">テストを受ける</a></li>
+    <li><a href="/mathLearningSite/answer.php">テストを受ける</a></li>
   </ul>
 </nav>
 
