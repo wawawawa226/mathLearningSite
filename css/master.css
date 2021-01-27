@@ -83,13 +83,13 @@ ul{
 
 main{
   width: 74%;
-  order: 2;
+  order: 1;
 
 }
 
 aside{
   width: 20%;
-  order: 1;
+  order: 2;
 }
 
 
