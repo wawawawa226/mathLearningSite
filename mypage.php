@@ -53,16 +53,11 @@ print_r($_SESSION);
         <div class="tabs">
 
           <p class="tab tab-checked" id="tab-note"><i class="fas fa-book-open"></i> 学習ノート</p>
-          <p class="tab" id="tab-result"><i class="far fa-file-alt"></i> 得点管理</p>
           <p class="tab" id="tab-info"><i class="fas fa-cog"></i> 会員情報の変更</p>
         </div>
 
         <div class="item tab-content tab-content-checked" id="content-note">
           <p class="content-none"><i class="fas fa-book-open"></i> まだノートはありません</p>
-        </div>
-
-        <div class="item tab-content" id="content-result">
-          <p class="content-none"><i class="far fa-file-alt"></i> まだテスト結果がありません</p>
         </div>
 
         <div class="item tab-content" id="content-info">
