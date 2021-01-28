@@ -7,7 +7,7 @@ if(isset($_SESSION['id'])){
   $userName = $_SESSION['name'];
   // メモを表示するためにDB接続する
   $dbh = db_connect();
-  $prepare = $dbh->prepare("SELECT memo FROM memo WHERE user_id = :id ");
+  $prepare = $dbh->prepare("SELECT * FROM memo WHERE user_id = :id ");
   $prepare->bindValue(':id',(int)$_SESSION['id'],PDO::PARAM_INT);
   $prepare->execute();
 }else{
@@ -60,11 +60,32 @@ print_r($_SESSION);
           <p class="tab" id="tab-info"><i class="fas fa-cog"></i> 会員情報の変更</p>
         </div>
 
+        <!-- 学習ノート表示部分 -->
         <div class="item tab-content tab-content-checked" id="content-note">
         <?php if(isset($_SESSION['id'])):?>
           <?php while($result = $prepare->fetch(PDO::FETCH_ASSOC)) { ?>
-            <div class="container shadow-sm mt-3 p-3 border">
+            <div type="button" class="container shadow-sm mt-3 p-3 border" data-toggle="modal" data-target="#modal<?php echo $result['memo_id']; ?>">
               <?php echo $result['memo']; ?>
+            </div>
+            <div class="modal fade" id="modal<?php echo $result['memo_id']; ?>" tabindex="-1"
+              role="dialog" aria-labelledby="label<?php echo $result['memo_id']; ?>" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="label<?php echo $result['memo_id']; ?>">編集</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <?php echo $result['memo']; ?>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">OK</button>
+                  </div>
+                </div>
+              </div>
             </div>
           <?php } ?>
         <?php else:?>
