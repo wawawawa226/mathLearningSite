@@ -1,11 +1,15 @@
 <?php
 session_start();
 require_once ('Common.php');
-
 // ログイン状態のチェック
 if(isset($_SESSION['id'])){
   // ログイン状態
   $userName = $_SESSION['name'];
+  // メモを表示するためにDB接続する
+  $dbh = db_connect();
+  $prepare = $dbh->prepare("SELECT memo FROM memo WHERE user_id = :id ");
+  $prepare->bindValue(':id',(int)$_SESSION['id'],PDO::PARAM_INT);
+  $prepare->execute();
 }else{
   // 未ログイン状態
   $userName = "ゲスト";
@@ -57,7 +61,16 @@ print_r($_SESSION);
         </div>
 
         <div class="item tab-content tab-content-checked" id="content-note">
-          <p class="content-none"><i class="fas fa-book-open"></i> まだノートはありません</p>
+        <?php if(isset($_SESSION['id'])):?>
+          <?php while($result = $prepare->fetch(PDO::FETCH_ASSOC)) { ?>
+            <div class="container shadow-sm mt-3 p-3 border">
+              <?php echo $result['memo']; ?>
+            </div>
+          <?php } ?>
+        <?php else:?>
+          <p class="content-none"><i class="fas fa-book-open"></i> ログインするとノートを保存できます。</p>
+
+        <?php endif;?>
         </div>
 
         <div class="item tab-content" id="content-info">
