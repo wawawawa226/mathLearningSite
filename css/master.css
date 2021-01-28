@@ -228,3 +228,9 @@ aside{
   color: gray;
   border-bottom: solid 2px skyblue;
 }
+
+.error{
+  color: #FC9D9D;
+  font-weight: bold;
+  margin-top: 1em;
+}

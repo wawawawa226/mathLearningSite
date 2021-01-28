@@ -1,6 +1,7 @@
 <?php
 require_once(dirname(__FILE__)."/../Common.php");
-
+session_start();
+$memo_display = "block" ;
 ?>
 
 <!DOCTYPE html>
