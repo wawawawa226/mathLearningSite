@@ -9,46 +9,11 @@ a:hover{
 }
 
 body {
-   margin-top:100px;
    padding: 0;
    font-family: "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro W3", メイリオ, Meiryo, "ＭＳＰゴシック", "Helvetica Neue", Helvetica, Arial, sans-serif;
-   /* background-color: #e6e6e6; */
    letter-spacing : 0.2em;
 }
-header {
-   padding: 20px 10% 10px 10%;
-   position: fixed;
-   top: 0;
-   width: 100%;
-   background-color: white;
-   display: flex;
-   align-items: center;
-   border-bottom: 2px solid #e6e6e6;
-}
-header h1 {
-   margin:0 2em 0 0;
-   padding: 0;
-   font-size: 30px;
-}
-header a {
-   text-decoration: none;
-   color: #4b4b4b;
-}
-header a:hover{
-  color: black;
-}
-header nav {
-   margin: 0 0 0 auto;
-}
-header ul {
-   list-style: none;
-   margin: 0;
-   display: flex;
-}
-header li {
-   margin: 0 0 0 15px;
-   font-size: 14px;
-}
+
 
 .sub-title{
   font-size: 1.375rem;
