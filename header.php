@@ -15,31 +15,30 @@ if(isset($_SESSION['id'])){
 
 </head>
 <body>
-  <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
-
-    <a href="/mathLearningSite/mypage.php" class="navbar-brand">数学学習サイト</a>
-    <button class="navbar-toggler" type="button"
+  <nav class="navbar navbar-expand-sm navbar-light border-bottom mb-3" style="background-color:#fff;">
+    <div class="container">
+      <a href="/mathLearningSite/mypage.php" class="navbar-brand">数学学習サイト</a>
+      <button class="navbar-toggler" type="button"
         data-toggle="collapse"
         data-target="#navmenu1"
         aria-controls="navmenu1"
         aria-expanded="false"
         aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navmenu1">
-      <div class="navbar-nav">
-        <?php if(isset($_SESSION['id'])):?>
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navmenu1">
+        <div class="navbar-nav">
+          <?php if(isset($_SESSION['id'])):?>
           <!-- ログインしている場合 -->
-
-            <span class="nav-item nav-link">こんにちは！<?php echo $userName ;?>さん</span>
-
-        <?php else:?>
-        <!-- ログインしていない場合、ログインリンクを設置 -->
-        <a class="nav-item nav-link" href="/mathLearningSite/login-form.php">ログイン/新規登録</a>
-        <?php endif;?>
-        <a class="nav-item nav-link" href="/mathLearningSite/mypage.php">マイページ</a>
-        <a class="nav-item nav-link" href="/mathLearningSite/workbook-list.php">問題一覧</a>
-        <a class="nav-item nav-link" href="/mathLearningSite/answer.php">テストを受ける</a>
+          <span class="nav-item nav-link">こんにちは！<?php echo $userName ;?>さん</span>
+          <?php else:?>
+          <!-- ログインしていない場合、ログインリンクを設置 -->
+          <a class="nav-item nav-link" href="/mathLearningSite/login-form.php">ログイン/新規登録</a>
+          <?php endif;?>
+          <a class="nav-item nav-link" href="/mathLearningSite/mypage.php">マイページ</a>
+          <a class="nav-item nav-link" href="/mathLearningSite/workbook-list.php">問題一覧</a>
+          <a class="nav-item nav-link" href="/mathLearningSite/answer.php">テストを受ける</a>
+        </div>
       </div>
     </div>
   </nav>

@@ -36,7 +36,6 @@ if(isset($_SESSION['id'])){
   $loginCheck = "false";
 }
 
-print_r($_SESSION);
 
 ?>
 
@@ -59,6 +58,7 @@ print_r($_SESSION);
 
     <div class="mypage-contents wrapper">
       <main>
+        <?php print_r($_SESSION);?>
         <!-- エラーメッセージがある場合、上部に表示して破棄する -->
         <?php if( isset( $_SESSION['message'] ) ):?>
           <div class="container mb-5 border p-1">
