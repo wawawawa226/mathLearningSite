@@ -83,13 +83,13 @@ ul{
 
 main{
   width: 74%;
-  order: 2;
+  order: 1;
 
 }
 
 aside{
   width: 20%;
-  order: 1;
+  order: 2;
 }
 
 
@@ -227,4 +227,10 @@ aside{
   font-weight: bold;
   color: gray;
   border-bottom: solid 2px skyblue;
+}
+
+.error{
+  color: #FC9D9D;
+  font-weight: bold;
+  margin-top: 1em;
 }

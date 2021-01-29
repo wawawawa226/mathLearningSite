@@ -6,6 +6,30 @@ require_once ('Common.php');
 if(isset($_SESSION['id'])){
   // ログイン状態
   $userName = $_SESSION['name'];
+  $dbh = db_connect();
+
+  // 削除ボタンが押された際、そのメモを削除する
+  if(isset($_POST['btn_delete'])){
+    $res = $dbh->prepare('DELETE FROM memo WHERE memo_id = :id');
+    $res->bindValue(':id',(int)$_POST['memo_id'],PDO::PARAM_INT);
+    $res->execute();
+    unset($_POST['memo_id']);
+    unset($_POST['btn_delete']);
+  }
+
+  // 編集ボタンが押された際、そのメモを編集する
+  if(isset($_POST['btn_edit'])){
+    $res = $dbh->prepare('UPDATE memo SET memo = :memo WHERE memo_id = :id');
+    $res->bindValue(':memo',(string)$_POST['memo'],PDO::PARAM_STR);
+    $res->bindValue(':id',(int)$_POST['memo_id'],PDO::PARAM_INT);
+    $res->execute();
+    unset($_POST['memo_id']);
+    unset($_POST['btn_edit']);
+  }
+  // メモを表示する
+  $prepare = $dbh->prepare("SELECT * FROM memo WHERE user_id = :id ");
+  $prepare->bindValue(':id',(int)$_SESSION['id'],PDO::PARAM_INT);
+  $prepare->execute();
 }else{
   // 未ログイン状態
   $userName = "ゲスト";
@@ -53,16 +77,54 @@ print_r($_SESSION);
         <div class="tabs">
 
           <p class="tab tab-checked" id="tab-note"><i class="fas fa-book-open"></i> 学習ノート</p>
-          <p class="tab" id="tab-result"><i class="far fa-file-alt"></i> 得点管理</p>
           <p class="tab" id="tab-info"><i class="fas fa-cog"></i> 会員情報の変更</p>
         </div>
 
+        <!-- 学習ノート表示部分 -->
         <div class="item tab-content tab-content-checked" id="content-note">
-          <p class="content-none"><i class="fas fa-book-open"></i> まだノートはありません</p>
-        </div>
+          <!-- ログイン済みの場合のみ、メモを表示する -->
+        <?php if(isset($_SESSION['id'])):?>
+          <!-- DBから取得したメモを全て取り出す -->
+          <?php while($result = $prepare->fetch(PDO::FETCH_ASSOC)) { ?>
+            <!-- 編集用に、メモ自体をボタンにしておく -->
+            <div type="button" class="container shadow-sm mt-3 p-3 border" data-toggle="modal" data-target="#modal<?php echo $result['memo_id']; ?>">
+              <?php echo $result['memo']; ?>
+            </div>
+            <!-- メモをクリックした際、モーダルでその内容を表示する -->
+            <div class="modal fade" id="modal<?php echo $result['memo_id']; ?>" tabindex="-1"
+              role="dialog" aria-labelledby="label<?php echo $result['memo_id']; ?>" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <!-- モーダルのタイトルー -->
+                    <h5 class="modal-title" id="label<?php echo $result['memo_id']; ?>">編集</h5>
+                    <!-- 閉じるボタン -->
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <!-- モーダルのbody メモ内容を表示する -->
+                  <form class="" action="" method="post">
+                  <div class="modal-body">
+                    <!-- 編集するためにテキストエリアにメモ内容を表示する -->
+                    <textarea class="w-100" name="memo" rows="8" cols="50"><?php echo $result['memo']; ?></textarea>
+                  </div>
+                  <!-- モーダルのfooter 編集ボタンと削除ボタンを設置 -->
+                  <div class="modal-footer">
+                    <input type="hidden" name="memo_id" value="<?php echo $result['memo_id'];?>">
+                    <button type="submit" name="btn_edit" class="btn btn-success">編集</button>
+                    <button type="submit" name="btn_delete" class="btn btn-danger">削除</button>
+                  </div>
+                </form>
+                </div>
+              </div>
+            </div>
+          <?php } ?>
+          <!-- 未ログイン状態の時、メモの代わりにメッセージを出力 -->
+        <?php else:?>
+          <p class="content-none"><i class="fas fa-book-open"></i> ログインするとノートを保存できます。</p>
 
-        <div class="item tab-content" id="content-result">
-          <p class="content-none"><i class="far fa-file-alt"></i> まだテスト結果がありません</p>
+        <?php endif;?>
         </div>
 
         <div class="item tab-content" id="content-info">
