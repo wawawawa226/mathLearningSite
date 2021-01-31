@@ -57,3 +57,9 @@ button{
     padding: 0.3em;
 
 }
+@media (max-width: 767px) {
+.signup-form-box{
+  width: 90%;
+
+  }
+}

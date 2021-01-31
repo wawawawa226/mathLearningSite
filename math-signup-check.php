@@ -90,7 +90,7 @@
   </head>
   <body>
 
-<div class="form-box form-check">
+<div class="form-box form-check container">
     <h3>確認</h3>
 
     <!-- 確認画面として入力内容を出力 -->

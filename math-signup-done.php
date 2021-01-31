@@ -86,11 +86,9 @@
 
     <div class="mypage-contents wrapper">
     <main>
-    <h3>登録が完了しました</h3>
+    <h3 class="graybold">登録が完了しました</h3>
     <p>はじめまして、<?php echo $_SESSION['name']."さん" ; ?></p>
-
-    <a class="btn btn-success" href="math-sign-up.php" role="button">新規作成</a>
-    <a class="btn btn-primary" href="user-list.php" role="button">ユーザー一覧</a>
+    <a class="btn btn-primary" href="mypage.php" role="button">マイページへ</a>
   </main>
   <aside>
     <?php include __DIR__ . '/sidebar.php';?>
