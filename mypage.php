@@ -58,7 +58,6 @@ if(isset($_SESSION['id'])){
 
     <div class="mypage-contents wrapper">
       <main>
-        <?php print_r($_SESSION);?>
         <!-- エラーメッセージがある場合、上部に表示して破棄する -->
         <?php if( isset( $_SESSION['message'] ) ):?>
           <div class="container mb-5 border p-1">
@@ -77,11 +76,11 @@ if(isset($_SESSION['id'])){
         <div class="tabs">
 
           <p class="tab tab-checked" id="tab-note"><i class="fas fa-book-open"></i> 学習ノート</p>
-          <p class="tab" id="tab-info"><i class="fas fa-cog"></i> 会員情報の変更</p>
+          <p class="tab" id="tab-info"><i class="fas fa-cog"></i> 会員情報</p>
         </div>
 
         <!-- 学習ノート表示部分 -->
-        <div class="item tab-content tab-content-checked" id="content-note">
+        <div class="item tab-content tab-content-checked overflow-auto" id="content-note">
           <!-- ログイン済みの場合のみ、メモを表示する -->
         <?php if(isset($_SESSION['id'])):?>
           <!-- DBから取得したメモを全て取り出す -->
@@ -94,6 +93,7 @@ if(isset($_SESSION['id'])){
             <div class="modal fade" id="modal<?php echo $result['memo_id']; ?>" tabindex="-1"
               role="dialog" aria-labelledby="label<?php echo $result['memo_id']; ?>" aria-hidden="true">
               <div class="modal-dialog modal-dialog-centered" role="document">
+                <!-- モーダル全体 -->
                 <div class="modal-content">
                   <div class="modal-header">
                     <!-- モーダルのタイトルー -->
@@ -107,7 +107,7 @@ if(isset($_SESSION['id'])){
                   <form class="" action="" method="post">
                   <div class="modal-body">
                     <!-- 編集するためにテキストエリアにメモ内容を表示する -->
-                    <textarea class="w-100" name="memo" rows="8" cols="50"><?php echo $result['memo']; ?></textarea>
+                    <textarea class="w-100 h-50 form-control" name="memo" rows="8" cols="50"><?php echo $result['memo']; ?></textarea>
                   </div>
                   <!-- モーダルのfooter 編集ボタンと削除ボタンを設置 -->
                   <div class="modal-footer">
@@ -127,10 +127,30 @@ if(isset($_SESSION['id'])){
         <?php endif;?>
         </div>
 
-        <div class="item tab-content" id="content-info">
-          <p class="content-none"><i class="far fa-file-alt"></i> <?php echo $userName?></p>
-          <p><a href="user_edit.php">会員情報を変更する</a></p>
-          <p><a href="logout.php">ログアウト</a></p>
+        <div class="item tab-content container shadow-sm mt-3 p-3 border h-auto" id="content-info">
+
+          <div class="container shadow-sm border p-3">
+            ニックネーム：<?php echo $userName; ?>
+          </div>
+
+          <div class="container shadow-sm mt-3 p-3 border p-3">
+            メールアドレス：<?php echo "aiueo@hoge.hg";?>
+          </div>
+
+          <div class="container shadow-sm mt-3 p-3 border p-3">
+            数学は：<?php echo "好き"?>
+          </div>
+
+          <div class="container shadow-sm mt-3 p-3 border p-3">
+            数学は：<?php echo "得意"?>
+          </div>
+
+          <div class="container shadow-sm mt-3 p-3 border p-3">
+            部活：<?php echo "科学部"?>
+          </div>
+
+          <a class="btn btn-success mt-3" href="user_edit.php">会員情報の変更</a>
+          <a class="btn btn-danger mt-3" href="logout.php">ログアウト</a>
         </div>
 
 
