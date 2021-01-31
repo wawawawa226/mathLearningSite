@@ -50,6 +50,10 @@
       $_SESSION = array();
       $_SESSION['name'] = $userName;
       $_SESSION['id'] = $res['user_id'];
+      $_SESSION['age'] = $res['age'];
+      $_SESSION['math_lev'] = $res['math_lev'];
+      $_SESSION['math_like'] = $res['math_like'];
+      $_SESSION['club'] = $res['club'];
       $judge = "完了" ;
       $pageFlag = 0 ;
     }else{

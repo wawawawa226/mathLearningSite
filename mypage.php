@@ -133,28 +133,32 @@ if(isset($_SESSION['id'])){
 
         <div class="item tab-content container shadow-sm mt-3 p-3 border h-auto" id="content-info">
 
+
           <div class="container shadow-sm border p-3">
             ニックネーム：<?php echo $userName; ?>
           </div>
+          <!-- ログイン状態の場合、会員情報を表示する -->
+          <?php if(isset($_SESSION['id'])): ?>
+
 
           <div class="container shadow-sm mt-3 p-3 border p-3">
-            メールアドレス：<?php echo "aiueo@hoge.hg";?>
+            学年：<?php echo $_SESSION['age'] ; ?>
+          </div>
+          <div class="container shadow-sm mt-3 p-3 border p-3">
+            数学は好きか：<?php echo $_SESSION['math_like'] ; ?>
           </div>
 
           <div class="container shadow-sm mt-3 p-3 border p-3">
-            数学は：<?php echo "好き"?>
+            数学は得意か：<?php echo $_SESSION['math_lev'] ;?>
           </div>
 
           <div class="container shadow-sm mt-3 p-3 border p-3">
-            数学は：<?php echo "得意"?>
-          </div>
-
-          <div class="container shadow-sm mt-3 p-3 border p-3">
-            部活：<?php echo "科学部"?>
+            部活：<?php echo $_SESSION['club'] ;?>
           </div>
 
           <a class="btn btn-success mt-3" href="user_edit.php">会員情報の変更</a>
           <a class="btn btn-danger mt-3" href="logout.php">ログアウト</a>
+        <?php endif; ?>
         </div>
 
 

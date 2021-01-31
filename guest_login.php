@@ -7,6 +7,10 @@ if(!isset($_SESSION['id'])){
   $_SESSION['name'] = "ゲストユーザー";
   $_SESSION['id'] = 73;
   $_SESSION['message'] = "ゲストログインに成功しました";
+  $_SESSION['age'] = "大学生以上" ;
+  $_SESSION['math_lev'] = "どちらかといえば得意";
+  $_SESSION['math_like'] = "どちらかといえば好き";
+  $_SESSION['club'] = "パソコン部";
   header("Location:" . $url_mypage );
   exit();
 }else{
