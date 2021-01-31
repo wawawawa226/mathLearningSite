@@ -35,6 +35,10 @@ if (password_verify("$pass", $data['password'])) {
   $_SESSION = array();
   $_SESSION['name'] = $data['user_name'];
   $_SESSION['id'] = $data['user_id'];
+  $_SESSION['age'] = $data['age'];
+  $_SESSION['math_lev'] = $data['math_lev'];
+  $_SESSION['math_like'] = $data['math_like'];
+  $_SESSION['club'] = $data['club'];
   header("Location:" . $url_mypage );
   exit();
 } else {
