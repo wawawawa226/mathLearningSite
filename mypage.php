@@ -73,10 +73,9 @@ if(isset($_SESSION['id'])){
           <a class="btn btn-info btn-block mb-5" href="guest_login.php">ゲストログイン</a>
         <?php endif;?>
 
-        <div class="tabs">
-
-          <p class="tab tab-checked" id="tab-note"><i class="fas fa-book-open"></i> 学習ノート</p>
-          <p class="tab" id="tab-info"><i class="fas fa-cog"></i> 会員情報</p>
+        <div class="tabs px-5">
+          <div class="tab tab-checked btn ml-md-5" id="tab-note"><i class="fas fa-book-open"></i> 学習ノート</div>
+          <div class="tab btn ml-md-5" id="tab-info"><i class="fas fa-cog"></i> 会員情報</div>
         </div>
 
         <!-- 学習ノート表示部分 -->

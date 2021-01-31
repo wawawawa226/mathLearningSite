@@ -79,7 +79,6 @@ aside{
 
 .tab{
   font-size: 1.5em;
-  margin-right: 3em;
   color: gray;
   border-bottom: 2px gray solid;
 }
@@ -88,10 +87,6 @@ aside{
   color: black;
 }
 
-.tabs{
-  display: flex;
-  justify-content: flex-start;
-}
 .tab-content{
   display: none;
   height: 25rem;
@@ -106,9 +101,6 @@ aside{
   color: black;
   border-bottom: 2px black solid;
 
-}
-.tab p{
-  display: inline;
 }
 
 .content-none{
