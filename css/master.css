@@ -123,7 +123,7 @@ aside{
 
 .form-box{
   width: 33%;
-  margin: 0 auto;
+  margin-top: 2em ;
   padding: 1em 2em;
   max-width: 400px;
   border: 1px solid lightgray;
@@ -198,4 +198,13 @@ aside{
   }
   main{
     width: 100%;
+}
+.form-box{
+  width: 90%;
+  margin: 0 auto;
+
+}
+.form-box-sub{
+  width: 90%;
+
 }
