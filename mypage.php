@@ -72,10 +72,14 @@ if(isset($_SESSION['id'])){
         <?php if( !isset( $_SESSION['id'] ) ): ?>
           <a class="btn btn-info btn-block mb-5" href="guest_login.php">ゲストログイン</a>
         <?php endif;?>
-
-        <div class="tabs px-5">
-          <div class="tab tab-checked btn ml-md-5" id="tab-note"><i class="fas fa-book-open"></i> 学習ノート</div>
-          <div class="tab btn ml-md-5" id="tab-info"><i class="fas fa-cog"></i> 会員情報</div>
+        <div class="tabs container-fluid">
+          <div class="row">
+            <div class="col-sm-2"></div>
+            <div class="tab tab-checked btn col-sm" id="tab-note"><i class="fas fa-book-open"></i> 学習ノート</div>
+            <div class="col-sm-1"></div>
+            <div class="tab btn col-sm" id="tab-info"><i class="fas fa-cog"></i> 会員情報</div>
+            <div class="col-sm-2"></div>
+          </div>
         </div>
 
         <!-- 学習ノート表示部分 -->
