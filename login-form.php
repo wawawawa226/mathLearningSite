@@ -33,21 +33,20 @@ $error = "";
   </head>
   <body>
 
-<div class="form-box">
+<div class="form-box container">
     <h3>ログイン</h3>
       <form action="login.php" method="post" id="login" name="su">
         <?php echo $error ;?>
           <div class="form-group">
             <label class="control-label" for="email">メールアドレス</label>
             <input type="email" class="form-control" id="email" name="email" value="<?php if(isset($email)){echo $email;}?>" required>
-            <p>guest@taro.dt</p>
+
             <div class="error" id="error_mail" style="display:none;">メールアドレスが入力されていません</div>
           </div>
 
           <div class="form-group">
             <label class="control-label" for="pass">パスワード</label>
             <input type="password" class="form-control" id="pass" name="pass" maxlength="10" required>
-            <p>admin1415</p>
             <div class="error" id="error_pass" style="display:none;">パスワードが入力されていません</div>
           </div>
 

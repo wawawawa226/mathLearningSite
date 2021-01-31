@@ -5,7 +5,7 @@ if(isset($_SESSION['id'])){
   // ログイン状態の場合
   $userName = $_SESSION['name'];
   $page_flag =  1 ;
-  if($_SESSION['id'] = 73){
+  if($_SESSION['id'] == 73){
     // ゲストログインの場合
     $page_flag =  2 ;
   }

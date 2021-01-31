@@ -24,11 +24,11 @@ require_once ('explanations_data.php');
 
     <div class="mypage-contents wrapper">
       <main>
-        <h1 class="text-center">単元一覧</h1>
+        <h1 class="text-center graybold border-0">中１単元一覧</h1>
         <div class="container-fluid">
           <div class="row">
             <?php foreach($mathUnits as $mathUnit):?>
-              <div class="col-6 mt-5">
+              <div class="col-sm-6 mt-5 btn">
                 <a href="<?php echo $mathUnit->url?>"><h3 class="text-center mb-10 graybold"><?php echo $mathUnit->unitName;?></h3></a>
                 <a href="<?php echo $mathUnit->url?>"><img class="shadow-sm img-thumbnail w-100" src="<?php echo $mathUnit->image?>"></a>
               </div>

@@ -60,7 +60,7 @@ $caution ="<i class=\"fas fa-exclamation-triangle\"></i>";
     <title>登録画面</title>
   </head>
   <body>
-    <div class="signup-form-box">
+    <div class="signup-form-box container">
       <form action="math-signup-check.php" method="post" id="sign_up" name="su">
         <h3>登録</h3>
         <p>すでにアカウントをお持ちですか？ <a href="login-form.php">ログイン<i class="fas fa-angle-double-right"></i></a></p>

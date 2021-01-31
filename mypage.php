@@ -58,6 +58,7 @@ if(isset($_SESSION['id'])){
 
     <div class="mypage-contents wrapper">
       <main>
+        <?php print_r($_SESSION) ?>
         <!-- エラーメッセージがある場合、上部に表示して破棄する -->
         <?php if( isset( $_SESSION['message'] ) ):?>
           <div class="container mb-5 border p-1">
@@ -72,11 +73,14 @@ if(isset($_SESSION['id'])){
         <?php if( !isset( $_SESSION['id'] ) ): ?>
           <a class="btn btn-info btn-block mb-5" href="guest_login.php">ゲストログイン</a>
         <?php endif;?>
-
-        <div class="tabs">
-
-          <p class="tab tab-checked" id="tab-note"><i class="fas fa-book-open"></i> 学習ノート</p>
-          <p class="tab" id="tab-info"><i class="fas fa-cog"></i> 会員情報</p>
+        <div class="tabs container-fluid">
+          <div class="row">
+            <div class="col-sm-2"></div>
+            <div class="tab tab-checked btn col-sm" id="tab-note"><i class="fas fa-book-open"></i> 学習ノート</div>
+            <div class="col-sm-1"></div>
+            <div class="tab btn col-sm" id="tab-info"><i class="fas fa-cog"></i> 会員情報</div>
+            <div class="col-sm-2"></div>
+          </div>
         </div>
 
         <!-- 学習ノート表示部分 -->
