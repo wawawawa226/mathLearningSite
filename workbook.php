@@ -1,74 +1,79 @@
 <?php
-  require_once 'Common.php';
+require_once 'Common.php';
+session_start();
+// 管理者でない場合、ページを表示できないようにする
+if(!isset($_SESSION['id']) || ($_SESSION['id'] !== 79)){
+  $_SESSION['message'] = "このページは管理者専用です。" ;
+  header("Location:" . $url_mypage );
+  exit();
+}
+
+$page_flag = 0;
+$clean = array();
+$error = array();
+$work = "";
+$answer = "";
+$work_level = "";
+$unit = "";
+if(isset($_GET['id'])){
+  $id = $_GET['id'];
+}else{
+  $id = 0;
+}
+
+// サニタイズ
+if( !empty($_POST) ) {
+  foreach( $_POST as $key => $value ) {
+    $clean[$key] = htmlspecialchars( $value, ENT_QUOTES);
+  }
+}
+
+if(isset($clean["work"])){$work = $clean["work"];}
+if(isset($clean["work_answer"])){$answer = $clean["work_answer"];}
+if(isset($clean["work_level"])){$work_level = $clean["work_level"];}
+if(isset($clean["unit"])){$unit = $clean["unit"];}
+
+if( !empty($clean['btn_confirm'])) {
+  // 登録確認
   $page_flag = 0;
-  $clean = array();
+  $error = validation($clean);
+  if( empty($error) ) {
+     $page_flag = 1;
+   }
+
+} elseif( !empty($clean['btn_submit']) && $id == "") {
+   // 登録完了
+  $page_flag = 2;
+  $dbh = db_connect();
+  $data = $dbh->prepare('INSERT INTO work_book(work,work_answer,work_level,unit)
+                          VALUES (:work,:answer,:work_level,:unit)');
+
+  $data->bindValue(':work',(string)$work,PDO::PARAM_STR);
+  $data->bindValue(':answer',(string)$answer,PDO::PARAM_STR);
+  $data->bindValue(':work_level',(int)$work_level,PDO::PARAM_INT);
+  $data->bindValue(':unit',(string)$unit,PDO::PARAM_STR);
+  $data->execute();
+}
+
+function validation($vali) {
   $error = array();
-  $work = "";
-  $answer = "";
-  $work_level = "";
-  $unit = "";
-  if(isset($_GET['id'])){
-    $id = $_GET['id'];
-  }else{
-    $id = 0;
+  // 問題のバリデーション
+  if( empty($vali['work']) ) {
+  $error[] = "「問題」は必ず入力してください。";
   }
 
-  // サニタイズ
-  if( !empty($_POST) ) {
-    foreach( $_POST as $key => $value ) {
-      $clean[$key] = htmlspecialchars( $value, ENT_QUOTES);
-    }
+  if( empty($vali['work_answer']) ) {
+  $error[] = "「解答」は必ず入力してください。";
   }
 
-  if(isset($clean["work"])){$work = $clean["work"];}
-  if(isset($clean["work_answer"])){$answer = $clean["work_answer"];}
-  if(isset($clean["work_level"])){$work_level = $clean["work_level"];}
-  if(isset($clean["unit"])){$unit = $clean["unit"];}
+  if( empty($vali['work_level']) ) {
+  $error[] = "「難易度」は必ず入力してください。";
+  }
 
-  if( !empty($clean['btn_confirm'])) {
-    // 登録確認
-    $page_flag = 0;
-    $error = validation($clean);
-    if( empty($error) ) {
-	     $page_flag = 1;
-     }
-
-   } elseif( !empty($clean['btn_submit']) && $id == "") {
-     // 登録完了
-	    $page_flag = 2;
-      $dbh = db_connect();
-      $data = $dbh->prepare('INSERT INTO work_book(work,work_answer,work_level,unit)
-                              VALUES (:work,:answer,:work_level,:unit)');
-
-      $data->bindValue(':work',(string)$work,PDO::PARAM_STR);
-      $data->bindValue(':answer',(string)$answer,PDO::PARAM_STR);
-      $data->bindValue(':work_level',(int)$work_level,PDO::PARAM_INT);
-      $data->bindValue(':unit',(string)$unit,PDO::PARAM_STR);
-      $data->execute();
-
-    }
-
-
-  function validation($vali) {
-
-	   $error = array();
-
-	    // 問題のバリデーション
-	if( empty($vali['work']) ) {
-		$error[] = "「問題」は必ず入力してください。";
-	}
-
-	if( empty($vali['work_answer']) ) {
-		$error[] = "「解答」は必ず入力してください。";
-	}
-
-	if( empty($vali['work_level']) ) {
-		$error[] = "「難易度」は必ず入力してください。";
-	}
   return $error;
-  }
-  echo "flag is...".$page_flag;
-  ?>
+}
+
+?>
 
 <!DOCTYPE html>
 <html lang="ja" dir="ltr">
@@ -84,35 +89,11 @@
     <title>問題登録画面</title>
   </head>
   <body style="margin:10%;">
-
-  <?php if( $page_flag === 1 ): ?>
     <!-- 登録確認 -->
+  <?php if( $page_flag === 1 ): ?>
     <p>問題文：<?php echo $work;?></p>
-    <p>解答:<?php echo $answer;?></p>
-    <p>難易度:
-      <?php
-      echo $work_level;
-      echo "(";
-      switch ($work_level) {
-        case 1:
-          echo "簡単";
-          break;
-        case 2:
-          echo "やや簡単";
-          break;
-        case 3:
-          echo "普通";
-          break;
-        case 4:
-          echo "やや難しい";
-          break;
-        case 5:
-          echo "難しい";
-          break;
-      }
-      echo ")";
-      ?>
-    </p>
+    <p>解答：<?php echo $answer;?></p>
+    <p>難易度:<?php echo $work_level."(".$work_levels[$work_level].")"?></p>
     <p>単元:<?php echo $unit;?></p>
 
   <form action="workbook.php" method="post" id="sign_up" name="su">
@@ -133,9 +114,7 @@
     <!-- 登録完了 -->
     <p>登録が完了しました。</p><br>
     <a class="btn btn-success" href="workbook.php" role="button">新規作成</a>
-    <a class="btn btn-primary" href="workbook-list.php" role="button">問題集一覧</a>
-
-
+    <a class="btn btn-primary" href="workbook-list.php" role="button">問題一覧</a>
   <?php else: ?>
     <!-- 問題登録画面 -->
     <?php if( !empty($error) ): ?>

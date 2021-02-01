@@ -1,9 +1,15 @@
 <?php
 session_start();
 require_once ('Common.php');
-// $id = $_GET['id'];
-if(isset($_SESSION['id'])){
-  $id = $_SESSION['id'];
+// 管理者でない場合、ページを表示できないようにする
+if(!isset($_SESSION['id']) || ($_SESSION['id'] !== 79)){
+  $_SESSION['message'] = "このページは管理者専用です。" ;
+  header("Location:" . $url_mypage );
+  exit();
+}
+
+if(isset($_GET['id'])){
+  $id = $_GET['id'];
   $dbh = db_connect();
   $res = $dbh->prepare('SELECT * FROM work_book WHERE work_number = :id');
   $res->bindValue(':id',(int)$id,PDO::PARAM_INT);
@@ -31,9 +37,9 @@ if(isset($_SESSION['id'])){
   </head>
   <body style="margin:5%;">
     このデータを本当に削除しますか？
-    <a class="btn btn-danger" href="workbook-delete-done.php" role="button">はい</a>
+    <a class="btn btn-danger" href="workbook-delete-done.php?id=<?php echo $id?>" role="button">はい</a>
     <a class="btn btn-primary" href="workbook-list.php" role="button">いいえ</a>"
-    
+
     <table border="1">
     <tr>
       <th>NO.</th>

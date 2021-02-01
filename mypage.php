@@ -26,7 +26,7 @@ if(isset($_SESSION['id'])){
     unset($_POST['memo_id']);
     unset($_POST['btn_edit']);
   }
-  // メモを表示する
+  // メモを取得する
   $prepare = $dbh->prepare("SELECT * FROM memo WHERE user_id = :id ");
   $prepare->bindValue(':id',(int)$_SESSION['id'],PDO::PARAM_INT);
   $prepare->execute();
@@ -58,7 +58,6 @@ if(isset($_SESSION['id'])){
 
     <div class="mypage-contents wrapper">
       <main>
-        <?php print_r($_SESSION) ?>
         <!-- エラーメッセージがある場合、上部に表示して破棄する -->
         <?php if( isset( $_SESSION['message'] ) ):?>
           <div class="container mb-5 border p-1">
@@ -76,7 +75,7 @@ if(isset($_SESSION['id'])){
         <div class="tabs container-fluid">
           <div class="row">
             <div class="col-sm-2"></div>
-            <div class="tab tab-checked btn col-sm" id="tab-note"><i class="fas fa-book-open"></i> 学習ノート</div>
+            <div class="tab tab-checked btn col-sm" id="tab-note"><i class="fas fa-book-open"></i> 学習メモ</div>
             <div class="col-sm-1"></div>
             <div class="tab btn col-sm" id="tab-info"><i class="fas fa-cog"></i> 会員情報</div>
             <div class="col-sm-2"></div>
@@ -124,9 +123,10 @@ if(isset($_SESSION['id'])){
               </div>
             </div>
           <?php } ?>
+
           <!-- 未ログイン状態の時、メモの代わりにメッセージを出力 -->
         <?php else:?>
-          <p class="content-none"><i class="fas fa-book-open"></i> ログインするとノートを保存できます。</p>
+          <p class="content-none"><i class="fas fa-book-open"></i> ログインするとメモを保存できます。</p>
 
         <?php endif;?>
         </div>

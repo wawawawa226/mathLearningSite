@@ -1,8 +1,16 @@
 <?php
-  require_once ('Common.php');
-  $dbh = db_connect();
-  $prepare = $dbh->prepare('SELECT * FROM work_book');
-  $prepare->execute();
+require_once 'Common.php';
+session_start();
+// 管理者でない場合、ページを表示できないようにする
+if(!isset($_SESSION['id']) || ($_SESSION['id'] !== 79)){
+  $_SESSION['message'] = "このページは管理者専用です。" ;
+  header("Location:" . $url_mypage );
+  exit();
+}
+
+$dbh = db_connect();
+$prepare = $dbh->prepare('SELECT * FROM work_book');
+$prepare->execute();
 ?>
 
 <!DOCTYPE html>
@@ -16,11 +24,13 @@
     <link rel="stylesheet" href="css/list-workbook.css">
     <!-- BootstrapのCSS読み込み -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
-    <script src="js/jquery-3.5.1.min.js"></script>
-    <script src="js/workbook.js"></script>
     <title>問題一覧画面</title>
   </head>
-  <body style="margin:5%;">
+  <body>
+    <header>
+      <?php include __DIR__ . '/header.php';?>
+    </header>
+    <div class="container">
     <a class="btn btn-success" href="workbook.php" role="button">新規登録</a>
     <table border="1">
     <tr>
@@ -50,5 +60,8 @@
     ?>
 
     </table>
+  </div>
+    <script src="js/jquery-3.5.1.min.js"></script>
+    <script src="js/workbook.js"></script>
   </body>
 </html>

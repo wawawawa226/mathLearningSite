@@ -1,12 +1,11 @@
 <?php
   session_start();
-  print_r($_SESSION);
   require_once ('Common.php');
   $check_data_name = "";
   $check_data_mail = "";
 
   if(!empty($_POST["name"]) ){
-    // $_POST["name"]が空でない場合、つまりuser_updatep経由で
+    // $_POST["name"]が空でない場合、つまりuser_update経由で
     // ページ遷移した場合のみ登録確認処理をする。
     $name = $_POST["name"];
     $email = $_POST["email"];
@@ -52,7 +51,7 @@
   </head>
   <body>
 
-<div class="form-box form-check">
+<div class="form-box form-check container">
     <h3>確認</h3>
 
     <!-- 確認画面として入力内容を出力 -->

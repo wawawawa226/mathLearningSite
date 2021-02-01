@@ -1,7 +1,6 @@
 <?php
 require_once ('Common.php');
 session_start();
-print_r($_SESSION);
 if(isset($_SESSION['id'])){
   $id = $_SESSION['id'];
   $dbh = db_connect();
@@ -26,7 +25,7 @@ if(isset($_SESSION['id'])){
     <link href="css/signup.css" rel="stylesheet">
     <title>数学更新画面</title>
   </head>
-  <body style="margin: 10% 20%;">
+  <body>
     <div class="signup-form-box">
       <form action="user_update_check.php" method="post" id="sign_up" name="su">
           <h3>更新画面</h3>
@@ -161,6 +160,8 @@ if(isset($_SESSION['id'])){
         </div>
 
     </form>
-</div>
+  </div>
+  <script src="js/jquery-3.5.1.min.js"></script>
+  <script src="js/math-sign-up.js"></script>
 </body>
 </html>

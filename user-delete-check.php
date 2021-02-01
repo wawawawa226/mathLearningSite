@@ -2,10 +2,10 @@
 require_once ('Common.php');
 session_start();
 if(isset($_SESSION['id'])){
-  $id = $_SESSION['id'];
+  $_SESSION['user_delete_id'] = $_SESSION['id'];
   $dbh = db_connect();
   $res = $dbh->prepare('SELECT * FROM user_info WHERE user_id = :id');
-  $res->bindValue(':id',(int)$id,PDO::PARAM_INT);
+  $res->bindValue(':id',(int)$_SESSION['id'],PDO::PARAM_INT);
   $res->execute();
 }else{
   header("Location:" . $url_mypage );
@@ -30,10 +30,10 @@ if(isset($_SESSION['id'])){
   </head>
   <body style="margin:5%;">
     このデータを本当に削除しますか？
-    <?php
-      echo "<a class=\"btn btn-danger\" href=\"user-delete-done.php?id=".$id."\" role=\"button\">はい</a>" ;
-      echo "<a class=\"btn btn-primary\" href=\"user-list.php\" role=\"button\">いいえ</a>";
-    ?>
+
+  <a class="btn btn-danger" href="user-delete-done.php" role="button">はい</a>
+  <a class="btn btn-primary" href="user-list.php" role="button">いいえ</a>
+
 
     <table border="1">
     <tr>

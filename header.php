@@ -36,7 +36,7 @@ if(isset($_SESSION['id'])){
           <a class="nav-item nav-link" href="/mathLearningSite/login-form.php">ログイン/新規登録</a>
           <?php endif;?>
           <a class="nav-item nav-link" href="/mathLearningSite/mypage.php">マイページ</a>
-          <a class="nav-item nav-link" href="/mathLearningSite/workbook-list.php">問題一覧</a>
+          <a class="nav-item nav-link" href="/mathLearningSite/explanations.php">学習する</a>
           <a class="nav-item nav-link" href="/mathLearningSite/answer.php">テストを受ける</a>
         </div>
       </div>
