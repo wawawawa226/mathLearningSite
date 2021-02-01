@@ -55,8 +55,6 @@ $caution ="<i class=\"fas fa-exclamation-triangle\"></i>";
     <link href="css/master.css" rel="stylesheet">
     <link href="css/signup.css" rel="stylesheet">
     <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
-    <script src="js/jquery-3.5.1.min.js"></script>
-    <script src="js/math-sign-up.js"></script>
     <title>登録画面</title>
   </head>
   <body>
@@ -213,5 +211,7 @@ $caution ="<i class=\"fas fa-exclamation-triangle\"></i>";
 
       </form>
     </div>
+    <script src="js/jquery-3.5.1.min.js"></script>
+    <script src="js/math-sign-up.js"></script>
   </body>
 </html>
