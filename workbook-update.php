@@ -1,83 +1,90 @@
 <?php
-  require_once 'Common.php';
-  $page_flag = 0;
-  $clean = array();
+require_once 'Common.php';
+session_start();
+// 管理者でない場合、ページを表示できないようにする
+if(!isset($_SESSION['id']) || ($_SESSION['id'] !== 79)){
+  $_SESSION['message'] = "このページは管理者専用です。" ;
+  header("Location:" . $url_mypage );
+  exit();
+}
+$page_flag = 0;
+$clean = array();
+$error = array();
+$work = "";
+$answer = "";
+$work_level = "";
+$unit = "";
+$dbh = db_connect();
+if(isset($_GET['id'])){
+  $id = $_GET['id'];
+}else{
+  $id = 0;
+}
+
+if( !empty($_POST) ) {
+  foreach( $_POST as $key => $value ) {
+    $clean[$key] = htmlspecialchars( $value, ENT_QUOTES);
+  }
+}
+
+if(isset($clean["work"])){$work = $clean["work"];}
+if(isset($clean["work_answer"])){$answer = $clean["work_answer"];}
+if(isset($clean["work_level"])){$work_level = $clean["work_level"];}
+if(isset($clean["unit"])){$unit = $clean["unit"];}
+
+function validation($vali) {
   $error = array();
-  $work = "";
-  $answer = "";
-  $work_level = "";
-  $unit = "";
-  $dbh = db_connect();
-  if(isset($_GET['id'])){
-    $id = $_GET['id'];
-  }else{
-    $id = 0;
+  // 問題のバリデーション
+  if( empty($vali['work']) ) {
+    $error[] = "「問題」は必ず入力してください。";
   }
 
-  if( !empty($_POST) ) {
-    foreach( $_POST as $key => $value ) {
-      $clean[$key] = htmlspecialchars( $value, ENT_QUOTES);
-    }
+  if( empty($vali['work_answer']) ) {
+    $error[] = "「解答」は必ず入力してください。";
   }
 
-  if(isset($clean["work"])){$work = $clean["work"];}
-  if(isset($clean["work_answer"])){$answer = $clean["work_answer"];}
-  if(isset($clean["work_level"])){$work_level = $clean["work_level"];}
-  if(isset($clean["unit"])){$unit = $clean["unit"];}
-
-  function validation($vali) {
-    $error = array();
-    // 問題のバリデーション
-    if( empty($vali['work']) ) {
-      $error[] = "「問題」は必ず入力してください。";
-    }
-
-    if( empty($vali['work_answer']) ) {
-      $error[] = "「解答」は必ず入力してください。";
-    }
-
-    if( empty($vali['work_level']) ) {
-      $error[] = "「難易度」は必ず入力してください。";
-    }
-    return $error;
+  if( empty($vali['work_level']) ) {
+    $error[] = "「難易度」は必ず入力してください。";
   }
+  return $error;
+}
 
-  if( (empty($clean['btn_update_check'])) && ($id !== 0) && (empty($clean['btn_update_done']))) {
-    // 更新登録画面
-    echo "pege3";
-    $page_flag = 3;
-    $res = $dbh->prepare('SELECT * FROM work_book WHERE work_number = :id');
-    $res->bindValue(':id',(int)$id,PDO::PARAM_INT);
-    $res->execute();
-    $data = $res->fetch(PDO::FETCH_ASSOC);
-    print_r($data);
+if( (empty($clean['btn_update_check'])) && ($id !== 0) && (empty($clean['btn_update_done']))) {
+  // 更新登録画面
+  echo "pege3";
+  $page_flag = 3;
+  $res = $dbh->prepare('SELECT * FROM work_book WHERE work_number = :id');
+  $res->bindValue(':id',(int)$id,PDO::PARAM_INT);
+  $res->execute();
+  $data = $res->fetch(PDO::FETCH_ASSOC);
+  print_r($data);
 
-    $work = $data['work'];
-    $answer = $data['work_answer'];
-    $work_level = $data['work_level'];
-    $unit = $data['unit'];
+  $work = $data['work'];
+  $answer = $data['work_answer'];
+  $work_level = $data['work_level'];
+  $unit = $data['unit'];
 
-  }elseif( !empty($clean['btn_update_check']) && $id !== 0) {
-    // 更新確認
-    $page_flag = 4;
+}elseif( !empty($clean['btn_update_check']) && $id !== 0) {
+  // 更新確認
+  $page_flag = 4;
 
-  }elseif( !empty($clean['btn_update_done']) && $id !== 0) {
-    // 更新完了
-    $page_flag = 5;
-    $prepare = $dbh->prepare('UPDATE work_book
-                           SET work = :work , work_answer = :answer, work_level = :work_level, unit = :unit
-                           WHERE work_number = :id');
+}elseif( !empty($clean['btn_update_done']) && $id !== 0) {
+  // 更新完了
+  $page_flag = 5;
+  $prepare = $dbh->prepare('UPDATE work_book
+                         SET work = :work , work_answer = :answer, work_level = :work_level, unit = :unit
+                         WHERE work_number = :id');
 
-    $prepare->bindValue(':work',(string)$work,PDO::PARAM_STR);
-    $prepare->bindValue(':answer',(string)$answer,PDO::PARAM_STR);
-    $prepare->bindValue(':work_level',(int)$work_level,PDO::PARAM_INT);
-    $prepare->bindValue(':unit',(string)$unit,PDO::PARAM_STR);
-    $prepare->bindValue(':id',(int)$id,PDO::PARAM_INT);
-    $prepare->execute();
-    $data = $prepare->fetch(PDO::FETCH_ASSOC);
+  $prepare->bindValue(':work',(string)$work,PDO::PARAM_STR);
+  $prepare->bindValue(':answer',(string)$answer,PDO::PARAM_STR);
+  $prepare->bindValue(':work_level',(int)$work_level,PDO::PARAM_INT);
+  $prepare->bindValue(':unit',(string)$unit,PDO::PARAM_STR);
+  $prepare->bindValue(':id',(int)$id,PDO::PARAM_INT);
+  $prepare->execute();
+  $data = $prepare->fetch(PDO::FETCH_ASSOC);
 
-  }
-  echo "flag is...".$page_flag;
+}
+echo "flag is...".$page_flag;
 ?>
 
  <!DOCTYPE html>

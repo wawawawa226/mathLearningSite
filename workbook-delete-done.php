@@ -1,8 +1,15 @@
 <?php
 session_start();
 require_once ('Common.php');
-if(isset($_SESSION['id'])){
-  $id = $_SESSION['id'];
+// 管理者でない場合、ページを表示できないようにする
+if(!isset($_SESSION['id']) || ($_SESSION['id'] !== 79)){
+  $_SESSION['message'] = "このページは管理者専用です。" ;
+  header("Location:" . $url_mypage );
+  exit();
+}
+
+if(isset($_GET['id'])){
+  $id = $_GET['id'];
   $dbh = db_connect();
   $res = $dbh->prepare('DELETE FROM work_book WHERE work_number  = :id');
   $res->bindValue(':id',(int)$id,PDO::PARAM_INT);
@@ -32,6 +39,7 @@ if(isset($_SESSION['id'])){
     削除が完了しました。<br>
     <a class="btn btn-success" href="workbook.php" role="button">新規作成</a>
     <a class="btn btn-primary" href="workbook-list.php" role="button">問題集一覧</a>
+    <a class="btn btn-primary" href="mypage.php" role="button">マイページ</a>
 
 
 

@@ -2,7 +2,7 @@
 require_once 'Common.php';
 session_start();
 // 管理者でない場合、ページを表示できないようにする
-if(!isset($_SESSION['message']) || ($_SESSION['message'] !== 79)){
+if(!isset($_SESSION['id']) || ($_SESSION['id'] !== 79)){
   $_SESSION['message'] = "このページは管理者専用です。" ;
   header("Location:" . $url_mypage );
   exit();
@@ -42,25 +42,22 @@ $prepare->execute();
       <th>部活</th>
       <th>登録日</th>
       <th>更新日</th>
-      <th>操作</th>
     </tr>
     <?php
     while($result = $prepare->fetch(PDO::FETCH_ASSOC)) {
     ?>
     <tr>
-    <td><?php echo $result["user_id"] ?> </td>
-    <td><?php echo $result["user_name"] ?> </td>
-    <td><?php echo $result["mail"] ?> </td>
-    <td><?php echo $result["age"] ?> </td>
-    <td><?php echo $result["math_lev"] ?> </td>
-    <td><?php echo $result["math_like"] ?> </td>
-    <td><?php echo $result["club"] ?> </td>
-    <td><?php echo $result["in_date"] ?> </td>
-    <td><?php echo $result["up_date"] ?> </td>
-    <td><?php echo "<a href=user-update.php?id=".$result["user_id"].">編集</a><br><a href=user-delete-check.php?id=".$result["user_id"].">削除</a>"?></td>
+      <td><?php echo $result["user_id"] ?> </td>
+      <td><?php echo $result["user_name"] ?> </td>
+      <td><?php echo $result["mail"] ?> </td>
+      <td><?php echo $result["age"] ?> </td>
+      <td><?php echo $result["math_lev"] ?> </td>
+      <td><?php echo $result["math_like"] ?> </td>
+      <td><?php echo $result["club"] ?> </td>
+      <td><?php echo $result["in_date"] ?> </td>
+      <td><?php echo $result["up_date"] ?> </td>
     </tr>
     <?php
-
     }
     ?>
 
