@@ -1,9 +1,16 @@
 <?php
-  require_once ('Common.php');
-  $dbh = db_connect();
-  $prepare = $dbh->prepare('SELECT * FROM user_info');
-  // SQL分を実行
-  $prepare->execute();
+require_once 'Common.php';
+session_start();
+// 管理者でない場合、ページを表示できないようにする
+if(!isset($_SESSION['message']) || ($_SESSION['message'] !== 79)){
+  $_SESSION['message'] = "このページは管理者専用です。" ;
+  header("Location:" . $url_mypage );
+  exit();
+}
+$dbh = db_connect();
+$prepare = $dbh->prepare('SELECT * FROM user_info');
+// SQL分を実行
+$prepare->execute();
 ?>
 
 <!DOCTYPE html>
