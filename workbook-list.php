@@ -24,11 +24,13 @@ $prepare->execute();
     <link rel="stylesheet" href="css/list-workbook.css">
     <!-- BootstrapのCSS読み込み -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
-    <script src="js/jquery-3.5.1.min.js"></script>
-    <script src="js/workbook.js"></script>
     <title>問題一覧画面</title>
   </head>
-  <body style="margin:5%;">
+  <body>
+    <header>
+      <?php include __DIR__ . '/header.php';?>
+    </header>
+    <div class="container">
     <a class="btn btn-success" href="workbook.php" role="button">新規登録</a>
     <table border="1">
     <tr>
@@ -58,5 +60,8 @@ $prepare->execute();
     ?>
 
     </table>
+  </div>
+    <script src="js/jquery-3.5.1.min.js"></script>
+    <script src="js/workbook.js"></script>
   </body>
 </html>

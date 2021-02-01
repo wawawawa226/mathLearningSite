@@ -51,13 +51,11 @@ function validation($vali) {
 
 if( (empty($clean['btn_update_check'])) && ($id !== 0) && (empty($clean['btn_update_done']))) {
   // 更新登録画面
-  echo "pege3";
   $page_flag = 3;
   $res = $dbh->prepare('SELECT * FROM work_book WHERE work_number = :id');
   $res->bindValue(':id',(int)$id,PDO::PARAM_INT);
   $res->execute();
   $data = $res->fetch(PDO::FETCH_ASSOC);
-  print_r($data);
 
   $work = $data['work'];
   $answer = $data['work_answer'];
@@ -84,7 +82,6 @@ if( (empty($clean['btn_update_check'])) && ($id !== 0) && (empty($clean['btn_upd
   $data = $prepare->fetch(PDO::FETCH_ASSOC);
 
 }
-echo "flag is...".$page_flag;
 ?>
 
  <!DOCTYPE html>
