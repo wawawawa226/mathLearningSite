@@ -1,6 +1,11 @@
 <?php
 session_start();
 require_once ('Common.php');
+if(isset($_SESSION['id'])){
+  $_SESSION['message'] = "既にログインしています。";
+  header("Location:" . $url_mypage );
+  exit();
+}
 $error = "";
   function h($var) //HTMLでのエスケープ処理をする関数
   {

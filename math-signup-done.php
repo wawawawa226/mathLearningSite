@@ -1,6 +1,11 @@
 <?php
 require_once ('Common.php');
 session_start();
+if(isset($_SESSION['id'])){
+  $_SESSION['message'] = "既にログインしています。";
+  header("Location:" . $url_mypage );
+  exit();
+}
 $check_data_mail = "";
 
 // nameが空でない、つまり正規のルートでアクセスされた場合に登録処理を行う。
