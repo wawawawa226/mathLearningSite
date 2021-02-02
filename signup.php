@@ -67,7 +67,7 @@ $caution ="<i class=\"fas fa-exclamation-triangle\"></i>";
         <?php include __DIR__ . '/header.php';?>
       </header>
     <div class="form-box container">
-      <form action="math-signup-check.php" method="post" id="sign_up" name="su">
+      <form action="signup_check.php" method="post" id="sign_up" name="su">
         <h3>登録</h3>
         <p>すでにアカウントをお持ちですか？ <a href="login-form.php">ログイン<i class="fas fa-angle-double-right"></i></a></p>
         <?php
