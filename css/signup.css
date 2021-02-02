@@ -37,7 +37,7 @@ background-color: #E2EDF9; /* マウスオーバー時の背景色を指定す�
   border-radius: 5px;
 }
 
-button{
+.submit_button{
   margin:3em 0;
 }
 

@@ -32,7 +32,7 @@ $prepare->execute();
     </header>
     <div class="container">
 
-    <a class="btn btn-success" href="math-sign-up.php" role="button">新規登録</a>
+    <a class="btn btn-success" href="signup.php" role="button">新規登録</a>
 
     <table border="1">
     <tr>

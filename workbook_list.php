@@ -51,8 +51,8 @@ $prepare->execute();
     <td><?php echo $result["work_answer"]; ?> </td>
     <td><?php echo $result["work_level"]; ?> </td>
     <td><?php echo $result["unit"]; ?> </td>
-    <td><?php echo "<a href = workbook-update.php?id=".$result["work_number"].">編集</a><br>
-                    <a href = workbook-delete-check.php?id=".$result["work_number"].">削除</a>";?></td>
+    <td><?php echo "<a href = workbook_update.php?id=".$result["work_number"].">編集</a><br>
+                    <a href = workbook_delete_check.php?id=".$result["work_number"].">削除</a>";?></td>
     </tr>
     <?php
 

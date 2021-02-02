@@ -1,6 +1,11 @@
 <?php
   session_start();
   require_once ('Common.php');
+  if(isset($_SESSION['id'])){
+    $_SESSION['message'] = "既にログインしています。";
+    header("Location:" . $url_mypage );
+    exit();
+  }
   $_SESSION = array();
   $check_data_name = "";
   $check_data_mail = "";
@@ -115,7 +120,7 @@
       <!-- type hidden で送信内容のフォームを作成-->
     <?php $pass1 = password_hash("$pass1", PASSWORD_DEFAULT);?>
       <!-- パスワードをハッシュ化-->
-        <form action="math-signup-done.php" method="post" id="sign_up" name="su">
+        <form action="signup_done.php" method="post" id="sign_up" name="su">
           <input type="hidden" name="name" value="<?php echo $name?>">
           <input type="hidden" name="email" value="<?php echo $email?>">
           <input type="hidden" name="pass1" value="<?php echo $pass1?>">
@@ -129,7 +134,7 @@
       <div class="buttons">
 
       <div class="form-group">
-        <a href="math-sign-up.php" class="btn btn-secondary btn-block">修正する</a>
+        <a href="signup.php" class="btn btn-secondary btn-block">修正する</a>
       </div>
 
       <div class="form-group">

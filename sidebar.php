@@ -29,6 +29,8 @@ if(!isset($_SESSION['id'])){
   </div>
   <div class="form-droup">
     <div class="error text-justify" style="display:<?php echo $display;?>;">ログインすると使用できます。</div>
+    <div id="true" class="error text-justify" style="display:none;">保存完了</div>
+    <div id="false" class="error text-justify" style="display:none;">保存失敗</div>
     <button type="button" <?php echo $noLogin;?> id="save_memo" name="btn_confirm" class="btn btn-sm btn-block btn-info mb-5">保存する</button>
   </div>
 </form>
@@ -42,10 +44,10 @@ if(!isset($_SESSION['id'])){
 
 <h3 class="sub-title">テスト</h3>
 <ul class="sub-menu">
-  <li><a href="/mathLearningSite/underConstruction.php">中学１年生</a></li>
-  <li><a href="/mathLearningSite/underConstruction.php">中学２年生</a></li>
-  <li><a href="/mathLearningSite/underConstruction.php">中学３年生</a></li>
-  <li><a href="/mathLearningSite/underConstruction.php">中学総合問題</a></li>
+  <li><a href="/mathLearningSite/answer.php">中学１年生</a></li>
+  <li><a href="/mathLearningSite/answer.php">中学２年生</a></li>
+  <li><a href="/mathLearningSite/answer.php">中学３年生</a></li>
+  <li><a href="/mathLearningSite/answer.php">中学総合問題</a></li>
 
 </ul>
 

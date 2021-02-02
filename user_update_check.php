@@ -89,7 +89,7 @@
       <div class="buttons">
 
       <div class="form-group">
-        <a href="user-update.php" class="btn btn-secondary btn-block">修正する</a>
+        <a href="user_update.php" class="btn btn-secondary btn-block">修正する</a>
       </div>
 
       <div class="form-group">

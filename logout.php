@@ -1,7 +1,8 @@
 <?php
 session_start();
+require_once ('Common.php');
 $output = '';
-if (isset($_SESSION['name'])) {
+if (isset($_SESSION['id'])) {
   $output = 'Logoutしました。';
 } else {
   $output = 'SessionがTimeoutしました。';
@@ -18,7 +19,5 @@ if (ini_get("session.use_cookies")) {
 }
 //セッションクリア
 @session_destroy();
-
-echo $output;
-echo"<br><a class=\"btn btn-success\" href=\"login-form.php\" role=\"button\">ログイン</a><br>";
-echo"<br><a class=\"btn btn-success\" href=\"mypage.php\" role=\"button\">マイページ</a>";
+header("Location:" . $url_mypage );
+exit();

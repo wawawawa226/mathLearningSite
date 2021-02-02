@@ -11,7 +11,7 @@ if(!isset($_SESSION['id']) || ($_SESSION['id'] !== 79)){
 if(isset($_GET['id'])){
   $id = $_GET['id'];
   $dbh = db_connect();
-  $res = $dbh->prepare('DELETE FROM work_book WHERE work_number  = :id');
+  $res = $dbh->prepare('SELECT * FROM work_book WHERE work_number = :id');
   $res->bindValue(':id',(int)$id,PDO::PARAM_INT);
   $res->execute();
 }else{
@@ -31,18 +31,35 @@ if(isset($_GET['id'])){
     <link rel="stylesheet" href="css/list-workbook.css">
     <!-- BootstrapのCSS読み込み -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
-    <script src="js/jquery-3.5.1.min.js"></script>
-    <script src="js/workbook.js"></script>
-    <title>問題削除完了画面</title>
+    <title>問題削除確認画面</title>
   </head>
   <body style="margin:5%;">
-    削除が完了しました。<br>
-    <a class="btn btn-success" href="workbook.php" role="button">新規作成</a>
-    <a class="btn btn-primary" href="workbook-list.php" role="button">問題集一覧</a>
-    <a class="btn btn-primary" href="mypage.php" role="button">マイページ</a>
+    このデータを本当に削除しますか？
+    <a class="btn btn-danger" href="workbook_delete_done.php?id=<?php echo $id?>" role="button">はい</a>
+    <a class="btn btn-primary" href="workbook_list.php" role="button">いいえ</a>"
 
+    <table border="1">
+    <tr>
+      <th>NO.</th>
+      <th>問題文</th>
+      <th>解答</th>
+      <th>難易度</th>
+      <th>単元</th>
+    </tr>
+    <?php
+    $data = $res->fetch(PDO::FETCH_ASSOC);
+    ?>
+    <tr>
+      <td><?php echo $data["work_number"] ?> </td>
+      <td><?php echo $data["work"] ?> </td>
+      <td><?php echo $data["work_answer"] ?> </td>
+      <td><?php echo $data["work_level"] ?> </td>
+      <td><?php echo $data["unit"] ?> </td>
+    </tr>
 
 
     </table>
+    <script src="js/jquery-3.5.1.min.js"></script>
+    <script src="js/workbook.js"></script>
   </body>
 </html>

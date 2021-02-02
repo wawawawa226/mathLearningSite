@@ -37,13 +37,20 @@ if(isset($_SESSION['id'])){
     </header>
     <div class="mypage-contents wrapper">
       <main>
+
+        <div class="container shadow-sm mb-5 mt-3 p-3 border text-center" >
+          <p>こちらでユーザー情報の編集、退会ができます。<br>
+            ※未ログイン状態またはゲストログイン状態の方はこちらの機能を使用できません。<br>
+          </p>
+        </div>
+
         <div class="btn-toolbar">
           <div class="btn-group mx-auto">
 
           <?php if( $page_flag === 1 ): ?>
             <!-- 通常のログイン状態の場合 -->
-            <a class="btn btn-success btn-lg" href="user-update.php">編集する</a>
-            <a class="btn btn-danger btn-lg ml-5" href="user-delete-check.php">退会する</a>
+            <a class="btn btn-success btn-lg" href="user_update.php">編集する</a>
+            <a class="btn btn-danger btn-lg ml-5" href="user_delete_check.php">退会する</a>
         <?php elseif( $page_flag === 2 ): ?>
             <!-- ゲストログイン状態、未ログイン状態の場合 -->
             <button class="btn btn-success btn-lg" data-toggle="modal" data-target="#modal1">編集する</button>
@@ -78,10 +85,6 @@ if(isset($_SESSION['id'])){
           </div>
         </div>
 
-        <div class="container-fluid border mt-2 text-center" >
-          <p class="mt-5">説明などを記述予定</p>
-          <p class="">説明などを記述予定</p>
-        </div>
 
       </main>
 

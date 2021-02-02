@@ -1,6 +1,11 @@
 <?php
 require_once ('Common.php');
 session_start();
+if(isset($_SESSION['id'])){
+  $_SESSION['message'] = "既にログインしています。";
+  header("Location:" . $url_mypage );
+  exit();
+}
 $check_data_mail = "";
 
 // nameが空でない、つまり正規のルートでアクセスされた場合に登録処理を行う。
@@ -76,8 +81,6 @@ if(!empty($_POST["name"]) ){
     <!-- BootstrapのCSS読み込み -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/master.css" rel="stylesheet">
-    <script src="js/jquery-3.5.1.min.js"></script>
-    <script src="js/math-sign-up.js"></script>
     <title>登録<?php echo $judge;?> </title>
   </head>
   <body>
@@ -107,5 +110,7 @@ if(!empty($_POST["name"]) ){
   </div>
   <?php endif; ?>
 
+  <script src="js/jquery-3.5.1.min.js"></script>
+  <script src="js/signup.js"></script>
   </body>
 </html>
