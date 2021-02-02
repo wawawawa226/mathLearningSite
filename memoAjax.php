@@ -3,7 +3,8 @@
   session_start();
   if(isset($_SESSION['id'])){
     $id = $_SESSION['id'] ;
-    $memo = $_POST['memo'];
+    // サニタイズ
+    $memo = htmlspecialchars( $_POST['memo'], ENT_QUOTES);
     $dbh = db_connect();
     $res = $dbh->prepare('INSERT INTO memo(user_id,memo,date) VALUES(:id,:memo,now())');
     $res->bindValue(':id',(int)$id,PDO::PARAM_INT);

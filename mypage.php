@@ -19,8 +19,10 @@ if(isset($_SESSION['id'])){
 
   // 編集ボタンが押された際、そのメモを編集する
   if(isset($_POST['btn_edit'])){
+    // メモの内容をサニタイズしておく
+    $memo = htmlspecialchars( $_POST['memo'], ENT_QUOTES);
     $res = $dbh->prepare('UPDATE memo SET memo = :memo WHERE memo_id = :id');
-    $res->bindValue(':memo',(string)$_POST['memo'],PDO::PARAM_STR);
+    $res->bindValue(':memo',(string)$memo,PDO::PARAM_STR);
     $res->bindValue(':id',(int)$_POST['memo_id'],PDO::PARAM_INT);
     $res->execute();
     unset($_POST['memo_id']);
@@ -103,7 +105,11 @@ if(isset($_SESSION['id'])){
             <?php while($result = $prepare->fetch(PDO::FETCH_ASSOC)) { ?>
               <!-- 編集用に、メモ自体をボタンにしておく -->
               <div type="button" class="container shadow-sm mt-3 p-3 border" data-toggle="modal" data-target="#modal<?php echo $result['memo_id']; ?>">
-                <?php echo $result['memo']; ?>
+                <?php
+                // メモの内容をサニタイズしておく
+                  echo htmlspecialchars($result['memo'], ENT_QUOTES);
+
+                ?>
               </div>
               <!-- メモをクリックした際、モーダルでその内容を表示する -->
               <div class="modal fade" id="modal<?php echo $result['memo_id']; ?>" tabindex="-1"
@@ -123,7 +129,7 @@ if(isset($_SESSION['id'])){
                     <form class="" action="" method="post">
                     <div class="modal-body">
                       <!-- 編集するためにテキストエリアにメモ内容を表示する -->
-                      <textarea class="w-100 h-50 form-control" name="memo" rows="8" cols="50"><?php echo $result['memo']; ?></textarea>
+                      <textarea class="w-100 h-50 form-control" name="memo" rows="8" cols="50"><?php echo htmlspecialchars($result['memo'], ENT_QUOTES); ?></textarea>
                     </div>
                     <!-- モーダルのfooter 編集ボタンと削除ボタンを設置 -->
                     <div class="modal-footer">
