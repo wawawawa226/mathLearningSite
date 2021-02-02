@@ -134,7 +134,7 @@
       <div class="buttons">
 
       <div class="form-group">
-        <a href="math-sign-up.php" class="btn btn-secondary btn-block">修正する</a>
+        <a href="signup.php" class="btn btn-secondary btn-block">修正する</a>
       </div>
 
       <div class="form-group">
