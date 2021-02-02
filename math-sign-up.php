@@ -56,14 +56,17 @@ $caution ="<i class=\"fas fa-exclamation-triangle\"></i>";
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- BootstrapのCSS読み込み -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link href="css/master.css" rel="stylesheet">
     <link href="css/signup.css" rel="stylesheet">
     <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
     <title>登録画面</title>
   </head>
   <body>
-    <div class="signup-form-box container">
+      <header>
+        <?php include __DIR__ . '/header.php';?>
+      </header>
+    <div class="form-box container">
       <form action="math-signup-check.php" method="post" id="sign_up" name="su">
         <h3>登録</h3>
         <p>すでにアカウントをお持ちですか？ <a href="login-form.php">ログイン<i class="fas fa-angle-double-right"></i></a></p>
@@ -211,12 +214,14 @@ $caution ="<i class=\"fas fa-exclamation-triangle\"></i>";
         </div>
 
         <div class="form-group">
-          <button value="送信" class="btn btn-info btn-block">登録する</button>
+          <button value="送信" class="btn btn-info btn-block submit_button">登録する</button>
         </div>
 
       </form>
     </div>
-    <script src="js/jquery-3.5.1.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
     <script src="js/math-sign-up.js"></script>
   </body>
 </html>

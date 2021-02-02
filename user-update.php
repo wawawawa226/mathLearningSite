@@ -156,7 +156,7 @@ if(isset($_SESSION['id'])){
         </div>
 
         <div class="form-droup">
-      <button value="送信" class="btn btn-primary mb-2">更新する</button>
+      <button value="送信" class="btn btn-primary mb-2 submit_button">更新する</button>
         </div>
 
     </form>
