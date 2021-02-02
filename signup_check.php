@@ -120,7 +120,7 @@
       <!-- type hidden で送信内容のフォームを作成-->
     <?php $pass1 = password_hash("$pass1", PASSWORD_DEFAULT);?>
       <!-- パスワードをハッシュ化-->
-        <form action="math-signup-done.php" method="post" id="sign_up" name="su">
+        <form action="signup_done.php" method="post" id="sign_up" name="su">
           <input type="hidden" name="name" value="<?php echo $name?>">
           <input type="hidden" name="email" value="<?php echo $email?>">
           <input type="hidden" name="pass1" value="<?php echo $pass1?>">
