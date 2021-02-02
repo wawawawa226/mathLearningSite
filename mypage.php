@@ -26,14 +26,24 @@ if(isset($_SESSION['id'])){
     unset($_POST['memo_id']);
     unset($_POST['btn_edit']);
   }
-  // メモを取得する
-  $prepare = $dbh->prepare("SELECT * FROM memo WHERE user_id = :id ");
+  // メモを数える
+  $prepare = $dbh->prepare("SELECT count(*) FROM memo WHERE user_id = :id ");
   $prepare->bindValue(':id',(int)$_SESSION['id'],PDO::PARAM_INT);
   $prepare->execute();
+  $prepare = $prepare->fetch(PDO::FETCH_ASSOC);
+  if($prepare["count(*)"] == 0){
+    // メモの数が0の場合、メモの代わりにメッセージを表示する
+    $memo_check = "false";
+  }else{
+    // メモの数が0でない場合、メモを取得する
+    $memo_check = "true";
+    $prepare = $dbh->prepare("SELECT * FROM memo WHERE user_id = :id ");
+    $prepare->bindValue(':id',(int)$_SESSION['id'],PDO::PARAM_INT);
+    $prepare->execute();
+  }
 }else{
   // 未ログイン状態
   $userName = "ゲスト";
-  $loginCheck = "false";
 }
 
 
@@ -84,50 +94,55 @@ if(isset($_SESSION['id'])){
 
         <!-- 学習ノート表示部分 -->
         <div class="item tab-content tab-content-checked overflow-auto" id="content-note">
-          <!-- ログイン済みの場合のみ、メモを表示する -->
+          <!-- ログイン済みの場合のみ、メモを表示するかどうか判断する -->
         <?php if(isset($_SESSION['id'])):?>
-          <!-- DBから取得したメモを全て取り出す -->
-          <?php while($result = $prepare->fetch(PDO::FETCH_ASSOC)) { ?>
-            <!-- 編集用に、メモ自体をボタンにしておく -->
-            <div type="button" class="container shadow-sm mt-3 p-3 border" data-toggle="modal" data-target="#modal<?php echo $result['memo_id']; ?>">
-              <?php echo $result['memo']; ?>
-            </div>
-            <!-- メモをクリックした際、モーダルでその内容を表示する -->
-            <div class="modal fade" id="modal<?php echo $result['memo_id']; ?>" tabindex="-1"
-              role="dialog" aria-labelledby="label<?php echo $result['memo_id']; ?>" aria-hidden="true">
-              <div class="modal-dialog modal-dialog-centered" role="document">
-                <!-- モーダル全体 -->
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <!-- モーダルのタイトルー -->
-                    <h5 class="modal-title" id="label<?php echo $result['memo_id']; ?>">編集</h5>
-                    <!-- 閉じるボタン -->
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                      <span aria-hidden="true">&times;</span>
-                    </button>
+          <!-- メモの数が0でない場合のみ、メモを表示する -->
+          <?php if($memo_check == "true"):?>
+
+            <!-- DBから取得したメモを全て取り出す -->
+            <?php while($result = $prepare->fetch(PDO::FETCH_ASSOC)) { ?>
+              <!-- 編集用に、メモ自体をボタンにしておく -->
+              <div type="button" class="container shadow-sm mt-3 p-3 border" data-toggle="modal" data-target="#modal<?php echo $result['memo_id']; ?>">
+                <?php echo $result['memo']; ?>
+              </div>
+              <!-- メモをクリックした際、モーダルでその内容を表示する -->
+              <div class="modal fade" id="modal<?php echo $result['memo_id']; ?>" tabindex="-1"
+                role="dialog" aria-labelledby="label<?php echo $result['memo_id']; ?>" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                  <!-- モーダル全体 -->
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <!-- モーダルのタイトルー -->
+                      <h5 class="modal-title" id="label<?php echo $result['memo_id']; ?>">編集</h5>
+                      <!-- 閉じるボタン -->
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <!-- モーダルのbody メモ内容を表示する -->
+                    <form class="" action="" method="post">
+                    <div class="modal-body">
+                      <!-- 編集するためにテキストエリアにメモ内容を表示する -->
+                      <textarea class="w-100 h-50 form-control" name="memo" rows="8" cols="50"><?php echo $result['memo']; ?></textarea>
+                    </div>
+                    <!-- モーダルのfooter 編集ボタンと削除ボタンを設置 -->
+                    <div class="modal-footer">
+                      <input type="hidden" name="memo_id" value="<?php echo $result['memo_id'];?>">
+                      <button type="submit" name="btn_edit" class="btn btn-success">編集</button>
+                      <button type="submit" name="btn_delete" class="btn btn-danger">削除</button>
+                    </div>
+                  </form>
                   </div>
-                  <!-- モーダルのbody メモ内容を表示する -->
-                  <form class="" action="" method="post">
-                  <div class="modal-body">
-                    <!-- 編集するためにテキストエリアにメモ内容を表示する -->
-                    <textarea class="w-100 h-50 form-control" name="memo" rows="8" cols="50"><?php echo $result['memo']; ?></textarea>
-                  </div>
-                  <!-- モーダルのfooter 編集ボタンと削除ボタンを設置 -->
-                  <div class="modal-footer">
-                    <input type="hidden" name="memo_id" value="<?php echo $result['memo_id'];?>">
-                    <button type="submit" name="btn_edit" class="btn btn-success">編集</button>
-                    <button type="submit" name="btn_delete" class="btn btn-danger">削除</button>
-                  </div>
-                </form>
                 </div>
               </div>
-            </div>
-          <?php } ?>
-
+            <?php } ?>
+            <!-- ログインしているが、メモがない場合 -->
+          <?php else:?>
+            <p class="content-none"><i class="fas fa-book-open"></i> まだメモがありません。</p>
+          <?php endif;?>
           <!-- 未ログイン状態の時、メモの代わりにメッセージを出力 -->
         <?php else:?>
           <p class="content-none"><i class="fas fa-book-open"></i> ログインするとメモを保存できます。</p>
-
         <?php endif;?>
         </div>
 
