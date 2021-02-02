@@ -38,7 +38,7 @@ if(isset($_GET['id'])){
   <body style="margin:5%;">
     削除が完了しました。<br>
     <a class="btn btn-success" href="workbook.php" role="button">新規作成</a>
-    <a class="btn btn-primary" href="workbook-list.php" role="button">問題集一覧</a>
+    <a class="btn btn-primary" href="workbook_list.php" role="button">問題集一覧</a>
     <a class="btn btn-primary" href="mypage.php" role="button">マイページ</a>
 
 

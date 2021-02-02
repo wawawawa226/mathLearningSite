@@ -101,7 +101,7 @@ if( (empty($clean['btn_update_check'])) && ($id !== 0) && (empty($clean['btn_upd
 
 <?php if( $page_flag === 3 ): ?>
 
-  <form action="workbook-update.php?id=<?php echo $id ?>" method="post" id="sign_up" name="su">
+  <form action="workbook_update.php?id=<?php echo $id ?>" method="post" id="sign_up" name="su">
     <h3>問題編集画面</h3>
 
     <div class="form-group">
@@ -181,7 +181,7 @@ if( (empty($clean['btn_update_check'])) && ($id !== 0) && (empty($clean['btn_upd
     </p>
     <p>単元:<?php echo $unit;?></p>
 
-  <form action="workbook-update.php?id=<?php echo $id ?>" method="post" id="sign_up" name="su">
+  <form action="workbook_update.php?id=<?php echo $id ?>" method="post" id="sign_up" name="su">
       <input type="hidden" name="work" value="<?php echo $work;?>">
       <input type="hidden" name="work_answer" value="<?php echo $answer;?>">
       <input type="hidden" name="work_level" value="<?php echo $work_level;?>">
@@ -198,7 +198,7 @@ if( (empty($clean['btn_update_check'])) && ($id !== 0) && (empty($clean['btn_upd
     <!-- 更新完了 -->
     <p>更新が完了しました。</p><br>
     <a class="btn btn-success" href="workbook.php" role="button">新規作成</a>
-    <a class="btn btn-primary" href="workbook-list.php" role="button">問題集一覧</a>
+    <a class="btn btn-primary" href="workbook_list.php" role="button">問題集一覧</a>
 
   <?php endif; ?>
   </body>

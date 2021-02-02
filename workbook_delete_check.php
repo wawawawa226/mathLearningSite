@@ -37,8 +37,8 @@ if(isset($_GET['id'])){
   </head>
   <body style="margin:5%;">
     このデータを本当に削除しますか？
-    <a class="btn btn-danger" href="workbook-delete-done.php?id=<?php echo $id?>" role="button">はい</a>
-    <a class="btn btn-primary" href="workbook-list.php" role="button">いいえ</a>"
+    <a class="btn btn-danger" href="workbook_delete_done.php?id=<?php echo $id?>" role="button">はい</a>
+    <a class="btn btn-primary" href="workbook_list.php" role="button">いいえ</a>"
 
     <table border="1">
     <tr>

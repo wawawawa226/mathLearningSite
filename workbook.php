@@ -114,7 +114,7 @@ function validation($vali) {
     <!-- 登録完了 -->
     <p>登録が完了しました。</p><br>
     <a class="btn btn-success" href="workbook.php" role="button">新規作成</a>
-    <a class="btn btn-primary" href="workbook-list.php" role="button">問題一覧</a>
+    <a class="btn btn-primary" href="workbook_list.php" role="button">問題一覧</a>
   <?php else: ?>
     <!-- 問題登録画面 -->
     <?php if( !empty($error) ): ?>
