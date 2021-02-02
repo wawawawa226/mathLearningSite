@@ -37,6 +37,13 @@ if(isset($_SESSION['id'])){
     </header>
     <div class="mypage-contents wrapper">
       <main>
+
+        <div class="container shadow-sm mb-5 mt-3 p-3 border text-center" >
+          <p>こちらでユーザー情報の編集、退会ができます。<br>
+            ※未ログイン状態またはゲストログイン状態の方はこちらの機能を使用できません。<br>
+          </p>
+        </div>
+
         <div class="btn-toolbar">
           <div class="btn-group mx-auto">
 
@@ -78,10 +85,6 @@ if(isset($_SESSION['id'])){
           </div>
         </div>
 
-        <div class="container-fluid border mt-2 text-center" >
-          <p class="mt-5">説明などを記述予定</p>
-          <p class="">説明などを記述予定</p>
-        </div>
 
       </main>
 
