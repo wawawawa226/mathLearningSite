@@ -4,6 +4,8 @@ $(function() {
   });
 
   var aj = () =>{
+    $("#true").hide();
+    $("#false").hide();
     var memo = $('#memo').val();
 
     // Ajax通信を開始
@@ -20,10 +22,12 @@ $(function() {
         // 通信成功時の処理を記述
         console.log("成功しました");
         console.log(data);
+        $('#memo').val("");
+        $("#true").show();
       })
       .fail(function() {
         // 通信失敗時の処理を記述
-        alert("失敗しました");
+          $("#false").show();
       });
     }
 

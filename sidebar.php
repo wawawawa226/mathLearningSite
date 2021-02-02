@@ -29,6 +29,8 @@ if(!isset($_SESSION['id'])){
   </div>
   <div class="form-droup">
     <div class="error text-justify" style="display:<?php echo $display;?>;">ログインすると使用できます。</div>
+    <div id="true" class="error text-justify" style="display:none;">保存完了</div>
+    <div id="false" class="error text-justify" style="display:none;">保存失敗</div>
     <button type="button" <?php echo $noLogin;?> id="save_memo" name="btn_confirm" class="btn btn-sm btn-block btn-info mb-5">保存する</button>
   </div>
 </form>
