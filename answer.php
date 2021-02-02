@@ -23,9 +23,6 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/master.css">
     <link rel="stylesheet" href="css/answer.css">
-    <script src="js/jquery-3.5.1.min.js"></script>
-    <script src="js/workbook.js"></script>
-    <script src="js/answer.js"></script>
     <title>ランダムテスト</title>
   </head>
   <body>
@@ -108,5 +105,8 @@
   <footer>
     <?php include __DIR__ . '/footer.php';?>
   </footer>
+  <script src="js/jquery-3.5.1.min.js"></script>
+  <script src="js/workbook.js"></script>
+  <script src="js/answer.js"></script>
 </body>
 </html>

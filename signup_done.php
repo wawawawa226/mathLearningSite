@@ -81,8 +81,6 @@ if(!empty($_POST["name"]) ){
     <!-- BootstrapのCSS読み込み -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/master.css" rel="stylesheet">
-    <script src="js/jquery-3.5.1.min.js"></script>
-    <script src="js/signup.js"></script>
     <title>登録<?php echo $judge;?> </title>
   </head>
   <body>
@@ -112,5 +110,7 @@ if(!empty($_POST["name"]) ){
   </div>
   <?php endif; ?>
 
+  <script src="js/jquery-3.5.1.min.js"></script>
+  <script src="js/signup.js"></script>
   </body>
 </html>

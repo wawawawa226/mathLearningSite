@@ -93,8 +93,6 @@ if( (empty($clean['btn_update_check'])) && ($id !== 0) && (empty($clean['btn_upd
      <link rel="stylesheet" href="css/master.css">
      <!-- BootstrapのCSS読み込み -->
      <link href="css/bootstrap.min.css" rel="stylesheet">
-     <script src="js/jquery-3.5.1.min.js"></script>
-     <script src="js/workbook.js"></script>
      <title>問題登録画面</title>
    </head>
    <body style="margin:10%;">
@@ -201,5 +199,7 @@ if( (empty($clean['btn_update_check'])) && ($id !== 0) && (empty($clean['btn_upd
     <a class="btn btn-primary" href="workbook_list.php" role="button">問題集一覧</a>
 
   <?php endif; ?>
+  <script src="js/jquery-3.5.1.min.js"></script>
+  <script src="js/workbook.js"></script>
   </body>
   </html>

@@ -31,8 +31,6 @@ if(isset($_GET['id'])){
     <link rel="stylesheet" href="css/list-workbook.css">
     <!-- BootstrapのCSS読み込み -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
-    <script src="js/jquery-3.5.1.min.js"></script>
-    <script src="js/workbook.js"></script>
     <title>問題削除完了画面</title>
   </head>
   <body style="margin:5%;">
@@ -44,5 +42,7 @@ if(isset($_GET['id'])){
 
 
     </table>
+    <script src="js/jquery-3.5.1.min.js"></script>
+    <script src="js/workbook.js"></script>
   </body>
 </html>

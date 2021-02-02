@@ -84,8 +84,6 @@ function validation($vali) {
     <link rel="stylesheet" href="css/master.css">
     <!-- BootstrapのCSS読み込み -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
-    <script src="js/jquery-3.5.1.min.js"></script>
-    <script src="js/workbook.js"></script>
     <title>問題登録画面</title>
   </head>
   <body style="margin:10%;">
@@ -174,5 +172,7 @@ function validation($vali) {
 
     </form>
 <?php endif; ?>
+<script src="js/jquery-3.5.1.min.js"></script>
+<script src="js/workbook.js"></script>
 </body>
 </html>
