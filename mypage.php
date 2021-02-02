@@ -138,7 +138,8 @@ if(isset($_SESSION['id'])){
             <?php } ?>
             <!-- ログインしているが、メモがない場合 -->
           <?php else:?>
-            <p class="content-none"><i class="fas fa-book-open"></i> まだメモがありません。</p>
+            <p class="content-none"><i class="fas fa-book-open"></i> まだメモがありません。<br>
+            学習ページで作成したメモがここに表示されます。</p>
           <?php endif;?>
           <!-- 未ログイン状態の時、メモの代わりにメッセージを出力 -->
         <?php else:?>
