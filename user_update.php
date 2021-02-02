@@ -162,6 +162,6 @@ if(isset($_SESSION['id'])){
     </form>
   </div>
   <script src="js/jquery-3.5.1.min.js"></script>
-  <script src="js/math-sign-up.js"></script>
+  <script src="js/signup.js"></script>
 </body>
 </html>

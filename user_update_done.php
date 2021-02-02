@@ -55,6 +55,6 @@ if(isset($_POST['name']) && isset($_SESSION['id']) ){
     </div>
 
     <script src="js/jquery-3.5.1.min.js"></script>
-    <script src="js/math-sign-up.js"></script>
+    <script src="js/signup.js"></script>
   </body>
 </html>
