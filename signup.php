@@ -64,12 +64,12 @@ $caution ="<i class=\"fas fa-exclamation-triangle\"></i>";
   </head>
   <body>
       <header>
-        <?php include __DIR__ . '/header.php';?>
+        <?php include __DIR__ . '/Header.php';?>
       </header>
     <div class="form-box container">
-      <form action="signup_check.php" method="post" id="sign_up" name="su">
+      <form action="SignupCheck.php" method="post" id="sign_up" name="su">
         <h3>登録</h3>
-        <p>すでにアカウントをお持ちですか？ <a href="login_form.php">ログイン<i class="fas fa-angle-double-right"></i></a></p>
+        <p>すでにアカウントをお持ちですか？ <a href="LoginForm.php">ログイン<i class="fas fa-angle-double-right"></i></a></p>
         <?php
         // エラーメッセージがある場合、それを表示する。
         // 名前のエラー

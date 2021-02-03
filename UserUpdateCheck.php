@@ -76,7 +76,7 @@
       <!-- type hidden で送信内容のフォームを作成-->
 
       <!-- パスワードをハッシュ化-->
-        <form action="user_update_done.php" method="post" id="sign_up" name="su">
+        <form action="UserUpdateDone.php" method="post" id="sign_up" name="su">
           <input type="hidden" name="name" value="<?php echo $name?>">
           <input type="hidden" name="email" value="<?php echo $email?>">
           <input type="hidden" name="age" value="<?php echo $age ?>">
@@ -89,7 +89,7 @@
       <div class="buttons">
 
       <div class="form-group">
-        <a href="user_update.php" class="btn btn-secondary btn-block">修正する</a>
+        <a href="UserUpdate.php" class="btn btn-secondary btn-block">修正する</a>
       </div>
 
       <div class="form-group">

@@ -27,7 +27,7 @@
   </head>
   <body>
     <header>
-      <?php include __DIR__ . '/header.php';?>
+      <?php include __DIR__ . '/Header.php';?>
     </header>
     <div class="mypage-contents wrapper">
     <main>
@@ -37,7 +37,7 @@
     <p>一度問題を表示した後は「問題を変更する」を押すと別の問題に変更することができます。</p>
   </div>
 
-      <form action="answer.php" method="post" id="sign_up" name="su">
+      <form action="Answer.php" method="post" id="sign_up" name="su">
       <hr>
       <label class="control-label">難易度を選択してください</label>
       <div class="form-group buttons">
@@ -97,13 +97,13 @@
 </main>
 
 <aside>
-  <?php include __DIR__ . '/sidebar.php';?>
+  <?php include __DIR__ . '/Sidebar.php';?>
 </aside>
 
   </div>
 
   <footer>
-    <?php include __DIR__ . '/footer.php';?>
+    <?php include __DIR__ . '/Footer.php';?>
   </footer>
   <script src="js/jquery-3.5.1.min.js"></script>
   <script src="js/workbook.js"></script>

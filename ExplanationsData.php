@@ -1,5 +1,5 @@
 <?php
-require_once ('Explanations_class.php');
+require_once ('ExplanationsClass.php');
 //                 単元名,          画像,                  URL
 $seifu = new Exp('正負の数','images/seifu.jpeg',' explanations/seifu.php');
 $moji = new Exp('文字式','images/seifu.jpeg',' explanations/seifu.php');

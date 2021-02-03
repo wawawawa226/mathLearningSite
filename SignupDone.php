@@ -88,17 +88,17 @@ if(!empty($_POST["name"]) ){
     <?php if ($pageFlag === 0): ?>
 
     <header>
-      <?php include __DIR__ . '/header.php';?>
+      <?php include __DIR__ . '/Header.php';?>
     </header>
 
     <div class="mypage-contents wrapper">
     <main>
     <h3 class="graybold">登録が完了しました</h3>
     <p>はじめまして、<?php echo $_SESSION['name']."さん" ; ?></p>
-    <a class="btn btn-primary" href="mypage.php" role="button">マイページへ</a>
+    <a class="btn btn-primary" href="Mypage.php" role="button">マイページへ</a>
   </main>
   <aside>
-    <?php include __DIR__ . '/sidebar.php';?>
+    <?php include __DIR__ . '/Sidebar.php';?>
   </aside>
     </div>
 
@@ -106,7 +106,7 @@ if(!empty($_POST["name"]) ){
   <?php else: ?>
     <div class="form-box">
       <p>エラーが発生しました。</p>
-      <a href="mypage.php" class="btn btn-outline-warning">マイページへ戻る</a>
+      <a href="Mypage.php" class="btn btn-outline-warning">マイページへ戻る</a>
   </div>
   <?php endif; ?>
 

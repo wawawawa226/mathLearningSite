@@ -120,7 +120,7 @@
       <!-- type hidden で送信内容のフォームを作成-->
     <?php $pass1 = password_hash("$pass1", PASSWORD_DEFAULT);?>
       <!-- パスワードをハッシュ化-->
-        <form action="signup_done.php" method="post" id="sign_up" name="su">
+        <form action="SignupDone.php" method="post" id="sign_up" name="su">
           <input type="hidden" name="name" value="<?php echo $name?>">
           <input type="hidden" name="email" value="<?php echo $email?>">
           <input type="hidden" name="pass1" value="<?php echo $pass1?>">
@@ -134,7 +134,7 @@
       <div class="buttons">
 
       <div class="form-group">
-        <a href="signup.php" class="btn btn-secondary btn-block">修正する</a>
+        <a href="Signup.php" class="btn btn-secondary btn-block">修正する</a>
       </div>
 
       <div class="form-group">

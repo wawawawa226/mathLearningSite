@@ -28,11 +28,11 @@ $prepare->execute();
   </head>
   <body>
     <header>
-      <?php include __DIR__ . '/header.php';?>
+      <?php include __DIR__ . '/Header.php';?>
     </header>
     <div class="container">
 
-    <a class="btn btn-success" href="signup.php" role="button">新規登録</a>
+    <a class="btn btn-success" href="Signup.php" role="button">新規登録</a>
 
     <table border="1">
     <tr>

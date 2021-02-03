@@ -51,7 +51,7 @@ if(isset($_POST['name']) && isset($_SESSION['id']) ){
 <!-- データ登録が完了しなかったとき -->
     <div class="form-box">
       <p>エラーが発生しました。</p>
-      <a href="mypage.php" class="btn btn-outline-warning">マイページへ戻る</a>
+      <a href="Mypage.php" class="btn btn-outline-warning">マイページへ戻る</a>
     </div>
 
     <script src="js/jquery-3.5.1.min.js"></script>

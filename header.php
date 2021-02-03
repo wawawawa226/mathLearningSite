@@ -17,7 +17,7 @@ if(isset($_SESSION['id'])){
 <body>
   <nav class="navbar navbar-expand-sm navbar-light border-bottom mb-3" style="background-color:#fff;">
     <div class="container">
-      <a href="/mathLearningSite/mypage.php" class="navbar-brand">数学学習サイト</a>
+      <a href="/mathLearningSite/Mypage.php" class="navbar-brand">数学学習サイト</a>
       <button class="navbar-toggler" type="button"
         data-toggle="collapse"
         data-target="#navmenu1"
@@ -33,11 +33,11 @@ if(isset($_SESSION['id'])){
           <span class="nav-item nav-link">こんにちは！<?php echo $userName ;?>さん</span>
           <?php else:?>
           <!-- ログインしていない場合、ログインリンクを設置 -->
-          <a class="nav-item nav-link" href="/mathLearningSite/login_form.php">ログイン/新規登録</a>
+          <a class="nav-item nav-link" href="/mathLearningSite/LoginForm.php">ログイン/新規登録</a>
           <?php endif;?>
-          <a class="nav-item nav-link" href="/mathLearningSite/mypage.php">マイページ</a>
-          <a class="nav-item nav-link" href="/mathLearningSite/explanations.php">学習する</a>
-          <a class="nav-item nav-link" href="/mathLearningSite/answer.php">テストを受ける</a>
+          <a class="nav-item nav-link" href="/mathLearningSite/Mypage.php">マイページ</a>
+          <a class="nav-item nav-link" href="/mathLearningSite/Explanations.php">学習する</a>
+          <a class="nav-item nav-link" href="/mathLearningSite/Answer.php">テストを受ける</a>
         </div>
       </div>
     </div>

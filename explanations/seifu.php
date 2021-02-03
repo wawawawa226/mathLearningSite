@@ -18,7 +18,7 @@ $memo_display = "block" ;
   </head>
   <body>
     <header>
-      <?php require_once(dirname(__FILE__)."/../header.php");?>
+      <?php require_once(dirname(__FILE__)."/../Header.php");?>
 
     </header>
 
@@ -28,8 +28,8 @@ $memo_display = "block" ;
         <!-- パンくずリスト -->
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="../mypage.php">マイページ</a></li>
-            <li class="breadcrumb-item"><a href="../explanations.php">中１数学</a></li>
+            <li class="breadcrumb-item"><a href="../Mypage.php">マイページ</a></li>
+            <li class="breadcrumb-item"><a href="../Explanations.php">中１数学</a></li>
             <li class="breadcrumb-item active" aria-current="page">正負の数</li>
           </ol>
         </nav>
@@ -116,7 +116,7 @@ $memo_display = "block" ;
       </main>
 
       <aside>
-        <?php require_once(dirname(__FILE__)."/../sidebar.php");?>
+        <?php require_once(dirname(__FILE__)."/../Sidebar.php");?>
       </aside>
     </div>
     <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>

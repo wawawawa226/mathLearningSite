@@ -27,7 +27,7 @@ if(isset($_SESSION['id'])){
   </head>
   <body>
     <div class="signup-form-box">
-      <form action="user_update_check.php" method="post" id="sign_up" name="su">
+      <form action="UserUpdateCheck.php" method="post" id="sign_up" name="su">
           <h3>更新画面</h3>
 
           <div class="form-group">

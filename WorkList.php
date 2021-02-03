@@ -1,6 +1,6 @@
 <?php
+require_once 'Common.php';
 session_start();
-require_once ('Common.php');
 // 管理者でない場合、ページを表示できないようにする
 if(!isset($_SESSION['id']) || ($_SESSION['id'] !== 79)){
   $_SESSION['message'] = "このページは管理者専用です。" ;
@@ -8,16 +8,9 @@ if(!isset($_SESSION['id']) || ($_SESSION['id'] !== 79)){
   exit();
 }
 
-if(isset($_GET['id'])){
-  $id = $_GET['id'];
-  $dbh = db_connect();
-  $res = $dbh->prepare('SELECT * FROM work_book WHERE work_number = :id');
-  $res->bindValue(':id',(int)$id,PDO::PARAM_INT);
-  $res->execute();
-}else{
-  header("Location:" . $url_mypage );
-  exit();
-}
+$dbh = db_connect();
+$prepare = $dbh->prepare('SELECT * FROM work_book');
+$prepare->execute();
 ?>
 
 <!DOCTYPE html>
@@ -31,13 +24,14 @@ if(isset($_GET['id'])){
     <link rel="stylesheet" href="css/list-workbook.css">
     <!-- BootstrapのCSS読み込み -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
-    <title>問題削除確認画面</title>
+    <title>問題一覧画面</title>
   </head>
-  <body style="margin:5%;">
-    このデータを本当に削除しますか？
-    <a class="btn btn-danger" href="workbook_delete_done.php?id=<?php echo $id?>" role="button">はい</a>
-    <a class="btn btn-primary" href="workbook_list.php" role="button">いいえ</a>"
-
+  <body>
+    <header>
+      <?php include __DIR__ . '/Header.php';?>
+    </header>
+    <div class="container">
+    <a class="btn btn-success" href="WorkAdd.php" role="button">新規登録</a>
     <table border="1">
     <tr>
       <th>NO.</th>
@@ -45,20 +39,28 @@ if(isset($_GET['id'])){
       <th>解答</th>
       <th>難易度</th>
       <th>単元</th>
+      <th>操作</th>
     </tr>
     <?php
-    $data = $res->fetch(PDO::FETCH_ASSOC);
+    while($result = $prepare->fetch(PDO::FETCH_ASSOC)) {
+
     ?>
     <tr>
-      <td><?php echo $data["work_number"] ?> </td>
-      <td><?php echo $data["work"] ?> </td>
-      <td><?php echo $data["work_answer"] ?> </td>
-      <td><?php echo $data["work_level"] ?> </td>
-      <td><?php echo $data["unit"] ?> </td>
+    <td><?php echo $result["work_number"]; ?> </td>
+    <td><?php echo $result["work"]; ?> </td>
+    <td><?php echo $result["work_answer"]; ?> </td>
+    <td><?php echo $result["work_level"]; ?> </td>
+    <td><?php echo $result["unit"]; ?> </td>
+    <td><?php echo "<a href = WorkUpdate.php?id=".$result["work_number"].">編集</a><br>
+                    <a href = WorkDeleteCheck.php?id=".$result["work_number"].">削除</a>";?></td>
     </tr>
+    <?php
 
+    }
+    ?>
 
     </table>
+  </div>
     <script src="js/jquery-3.5.1.min.js"></script>
     <script src="js/workbook.js"></script>
   </body>

@@ -10,7 +10,7 @@ $(function() {
 
     // Ajax通信を開始
     $.ajax({
-      url: '../memoAjax.php',
+      url: '../MemoAjax.php',
       type: 'POST',
       // フォーム要素の内容をハッシュ形式に変換
       data: {

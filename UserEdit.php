@@ -33,7 +33,7 @@ if(isset($_SESSION['id'])){
   </head>
   <body>
     <header>
-      <?php include __DIR__ . '/header.php';?>
+      <?php include __DIR__ . '/Header.php';?>
     </header>
     <div class="mypage-contents wrapper">
       <main>
@@ -49,8 +49,8 @@ if(isset($_SESSION['id'])){
 
           <?php if( $page_flag === 1 ): ?>
             <!-- 通常のログイン状態の場合 -->
-            <a class="btn btn-success btn-lg" href="user_update.php">編集する</a>
-            <a class="btn btn-danger btn-lg ml-5" href="user_delete_check.php">退会する</a>
+            <a class="btn btn-success btn-lg" href="UserUpdate.php">編集する</a>
+            <a class="btn btn-danger btn-lg ml-5" href="UserDeleteCheck.php">退会する</a>
         <?php elseif( $page_flag === 2 ): ?>
             <!-- ゲストログイン状態、未ログイン状態の場合 -->
             <button class="btn btn-success btn-lg" data-toggle="modal" data-target="#modal1">編集する</button>
@@ -89,7 +89,7 @@ if(isset($_SESSION['id'])){
       </main>
 
       <aside>
-        <?php include __DIR__ . '/sidebar.php';?>
+        <?php include __DIR__ . '/Sidebar.php';?>
       </aside>
     </div>
 

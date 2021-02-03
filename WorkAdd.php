@@ -94,7 +94,7 @@ function validation($vali) {
     <p>難易度:<?php echo $work_level."(".$work_levels[$work_level].")"?></p>
     <p>単元:<?php echo $unit;?></p>
 
-  <form action="workbook.php" method="post" id="sign_up" name="su">
+  <form action="WorkAdd.php" method="post" id="sign_up" name="su">
       <input type="hidden" name="work" value="<?php echo $work;?>">
       <input type="hidden" name="work_answer" value="<?php echo $answer;?>">
       <input type="hidden" name="work_level" value="<?php echo $work_level;?>">
@@ -111,8 +111,8 @@ function validation($vali) {
   <?php elseif( $page_flag === 2 ): ?>
     <!-- 登録完了 -->
     <p>登録が完了しました。</p><br>
-    <a class="btn btn-success" href="workbook.php" role="button">新規作成</a>
-    <a class="btn btn-primary" href="workbook_list.php" role="button">問題一覧</a>
+    <a class="btn btn-success" href="WorkAdd.php" role="button">新規作成</a>
+    <a class="btn btn-primary" href="WorkList.php" role="button">問題一覧</a>
   <?php else: ?>
     <!-- 問題登録画面 -->
     <?php if( !empty($error) ): ?>
@@ -122,7 +122,7 @@ function validation($vali) {
 	      <?php endforeach; ?>
 	     </ul>
     <?php endif; ?>
-    <form action="workbook.php" method="post" id="sign_up" name="su">
+    <form action="WorkAdd.php" method="post" id="sign_up" name="su">
       <h3>問題登録画面</h3>
 
       <div class="form-group">

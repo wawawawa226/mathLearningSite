@@ -29,8 +29,8 @@ if(isset($_SESSION['id'])){
   <body style="margin:5%;">
     このデータを本当に削除しますか？
 
-  <a class="btn btn-danger" href="user_delete_done.php" role="button">はい</a>
-  <a class="btn btn-primary" href="user_list.php" role="button">いいえ</a>
+  <a class="btn btn-danger" href="UserDeleteDone.php" role="button">はい</a>
+  <a class="btn btn-primary" href="UserList.php" role="button">いいえ</a>
 
 
     <table border="1">

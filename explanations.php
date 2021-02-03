@@ -1,7 +1,7 @@
 <?php
 session_start();
 require_once ('Common.php');
-require_once ('explanations_data.php');
+require_once ('ExplanationsData.php');
 
 ?>
 
@@ -19,7 +19,7 @@ require_once ('explanations_data.php');
   </head>
   <body>
     <header>
-      <?php include __DIR__ . '/header.php';?>
+      <?php include __DIR__ . '/Header.php';?>
     </header>
 
     <div class="mypage-contents wrapper">
@@ -39,7 +39,7 @@ require_once ('explanations_data.php');
       </main>
 
       <aside>
-        <?php include __DIR__ . '/sidebar.php';?>
+        <?php include __DIR__ . '/Sidebar.php';?>
       </aside>
     </div>
 
