@@ -10,7 +10,7 @@
   $work_levels = array(1=>"簡単",2=>"やや簡単",3=>"普通",4=>"やや難しい",5=>"難しい");
   $units = array("正負の数","文字式","方程式","関数","平面図形","空間図形","資料の整理");
   $works = array("問題0", "問題1", "問題2", "問題3");
-  $url_signUp = "http://wawawawa.pigboat.jp/mathLearningSite/Signup.php";
-  $url_mypage = "http://wawawawa.pigboat.jp/mathLearningSite/Mypage.php";
-  $url_loginForm = "http://wawawawa.pigboat.jp/mathLearningSite/LoginForm.php";
+  $url_signUp = "https://nijimath.com/User/Signup/Signup.php";
+  $url_mypage = "https://nijimath.com/User/Mypage.php";
+  $url_loginForm = "https://nijimath.com/User/Login/LoginForm.php";
 ?>
