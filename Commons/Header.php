@@ -17,7 +17,7 @@ if(isset($_SESSION['id'])){
 <body>
   <nav class="navbar navbar-expand-sm navbar-light border-bottom mb-3" style="background-color:#fff;">
     <div class="container">
-      <a href="/mathLearningSite/Mypage.php" class="navbar-brand">数学学習サイト</a>
+      <a href="https://nijimath.com" class="navbar-brand">数学学習サイト</a>
       <button class="navbar-toggler" type="button"
         data-toggle="collapse"
         data-target="#navmenu1"
