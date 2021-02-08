@@ -1,16 +1,16 @@
 <?php
-  require_once 'Common.php';
-  session_start();
-  if(isset($_SESSION['name'])){
-    // ログインしている場合
-    $userName = $_SESSION['name'];
-  }else{
-    // ログインしていない場合、名前をゲストにする
-      $userName = "ゲスト";
-      $loginCheck = "none";
-    }
+require_once dirname(__FILE__) . '/../Commons/Common.php';
+session_start();
+if(isset($_SESSION['name'])){
+  // ログインしている場合
+  $userName = $_SESSION['name'];
+}else{
+  // ログインしていない場合、名前をゲストにする
+    $userName = "ゲスト";
+    $loginCheck = "none";
+  }
 
-  $key = array_rand($works, 1);
+$key = array_rand($works, 1);
 ?>
 
 <!DOCTYPE html>
@@ -20,14 +20,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- BootstrapのCSS読み込み -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/master.css">
-    <link rel="stylesheet" href="css/answer.css">
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/master.css">
+    <link rel="stylesheet" href="/css/answer.css">
     <title>ランダムテスト</title>
   </head>
   <body>
     <header>
-      <?php include __DIR__ . '/Header.php';?>
+      <?php include __DIR__ . '/../Commons/Header.php';?>
     </header>
     <div class="mypage-contents wrapper">
     <main>
@@ -97,16 +97,16 @@
 </main>
 
 <aside>
-  <?php include __DIR__ . '/Sidebar.php';?>
+  <?php include __DIR__ . '/../Commons/Sidebar.php';?>
 </aside>
 
   </div>
 
   <footer>
-    <?php include __DIR__ . '/Footer.php';?>
+    <?php include __DIR__ . '/../Commons/Footer.php';?>
   </footer>
-  <script src="js/jquery-3.5.1.min.js"></script>
-  <script src="js/workbook.js"></script>
-  <script src="js/answer.js"></script>
+  <script src="/js/jquery-3.5.1.min.js"></script>
+  <script src="/js/workbook.js"></script>
+  <script src="/js/answer.js"></script>
 </body>
 </html>
