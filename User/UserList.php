@@ -19,11 +19,11 @@ $prepare->execute();
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- BootstrapのCSS読み込み -->
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="/css/master.css">
     <link rel="stylesheet" href="/css/list.css">
     <link rel="stylesheet" href="/css/list-user.css">
-    <!-- BootstrapのCSS読み込み -->
-    <link href="/css/bootstrap.min.css" rel="stylesheet">
     <title>ユーザー一覧画面</title>
   </head>
   <body>

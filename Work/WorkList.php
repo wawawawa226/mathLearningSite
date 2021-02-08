@@ -52,7 +52,7 @@ $prepare->execute();
     <td><?php echo $result["work_level"]; ?> </td>
     <td><?php echo $result["unit"]; ?> </td>
     <td><?php echo "<a href = WorkUpdate.php?id=".$result["work_number"].">編集</a><br>
-                    <a href = /Delete/WorkDeleteCheck.php?id=".$result["work_number"].">削除</a>";?></td>
+                    <a href = Delete/WorkDeleteCheck.php?id=".$result["work_number"].">削除</a>";?></td>
     </tr>
     <?php
 
