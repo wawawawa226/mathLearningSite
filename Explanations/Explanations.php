@@ -1,7 +1,7 @@
 <?php
 session_start();
-require_once ('Common.php');
-require_once ('ExplanationsData.php');
+require_once dirname(__FILE__) . '/../Commons/Common.php';
+require_once dirname(__FILE__) .'/ExplanationsData.php';
 
 ?>
 
@@ -19,7 +19,8 @@ require_once ('ExplanationsData.php');
   </head>
   <body>
     <header>
-      <?php include __DIR__ . '/Header.php';?>
+
+      <?php include __DIR__ . '/../Commons/Header.php';?>
     </header>
 
     <div class="mypage-contents wrapper">
@@ -39,14 +40,14 @@ require_once ('ExplanationsData.php');
       </main>
 
       <aside>
-        <?php include __DIR__ . '/Sidebar.php';?>
+        <?php include __DIR__ . '/../Commons/Sidebar.php';?>
       </aside>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
-    <script src="js/workbook.js"></script>
-    <script src="js/mypage.js"></script>
+    <script src="/js/workbook.js"></script>
+    <script src="/js/mypage.js"></script>
   </body>
 </html>

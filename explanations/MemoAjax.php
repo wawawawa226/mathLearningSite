@@ -1,5 +1,5 @@
 <?php
-  require_once ('Common.php');
+  require_once dirname(__FILE__) . '/../Commons/Common.php';
   session_start();
   if(isset($_SESSION['id'])){
     $id = $_SESSION['id'] ;
