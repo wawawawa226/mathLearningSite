@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once ('Common.php');
+require_once dirname(__FILE__) . '/../../Commons/Common.php';
 // 管理者でない場合、ページを表示できないようにする
 if(!isset($_SESSION['id']) || ($_SESSION['id'] !== 79)){
   $_SESSION['message'] = "このページは管理者専用です。" ;
@@ -26,11 +26,11 @@ if(isset($_GET['id'])){
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="css/master.css">
-    <link rel="stylesheet" href="css/list.css">
-    <link rel="stylesheet" href="css/list-workbook.css">
+    <link rel="stylesheet" href="/css/master.css">
+    <link rel="stylesheet" href="/css/list.css">
+    <link rel="stylesheet" href="/css/list-workbook.css">
     <!-- BootstrapのCSS読み込み -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
     <title>問題削除完了画面</title>
   </head>
   <body style="margin:5%;">
@@ -42,7 +42,7 @@ if(isset($_GET['id'])){
 
 
     </table>
-    <script src="js/jquery-3.5.1.min.js"></script>
-    <script src="js/workbook.js"></script>
+    <script src="/js/jquery-3.5.1.min.js"></script>
+    <script src="/js/workbook.js"></script>
   </body>
 </html>

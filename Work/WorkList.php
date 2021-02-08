@@ -1,5 +1,5 @@
 <?php
-require_once 'Common.php';
+require_once dirname(__FILE__) . '/../Commons/Common.php';
 session_start();
 // 管理者でない場合、ページを表示できないようにする
 if(!isset($_SESSION['id']) || ($_SESSION['id'] !== 79)){
@@ -19,16 +19,16 @@ $prepare->execute();
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="css/master.css">
-    <link rel="stylesheet" href="css/list.css">
-    <link rel="stylesheet" href="css/list-workbook.css">
+    <link rel="stylesheet" href="/css/master.css">
+    <link rel="stylesheet" href="/css/list.css">
+    <link rel="stylesheet" href="/css/list-workbook.css">
     <!-- BootstrapのCSS読み込み -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
     <title>問題一覧画面</title>
   </head>
   <body>
     <header>
-      <?php include __DIR__ . '/Header.php';?>
+      <?php include __DIR__ . '/../Commons/Header.php';?>
     </header>
     <div class="container">
     <a class="btn btn-success" href="WorkAdd.php" role="button">新規登録</a>
@@ -52,7 +52,7 @@ $prepare->execute();
     <td><?php echo $result["work_level"]; ?> </td>
     <td><?php echo $result["unit"]; ?> </td>
     <td><?php echo "<a href = WorkUpdate.php?id=".$result["work_number"].">編集</a><br>
-                    <a href = WorkDeleteCheck.php?id=".$result["work_number"].">削除</a>";?></td>
+                    <a href = /Delete/WorkDeleteCheck.php?id=".$result["work_number"].">削除</a>";?></td>
     </tr>
     <?php
 
@@ -61,7 +61,7 @@ $prepare->execute();
 
     </table>
   </div>
-    <script src="js/jquery-3.5.1.min.js"></script>
-    <script src="js/workbook.js"></script>
+    <script src="/js/jquery-3.5.1.min.js"></script>
+    <script src="/js/workbook.js"></script>
   </body>
 </html>

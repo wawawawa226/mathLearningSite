@@ -1,5 +1,5 @@
 <?php
-require_once 'Common.php';
+require_once dirname(__FILE__) . '/../Commons/Common.php';
 session_start();
 // 管理者でない場合、ページを表示できないようにする
 if(!isset($_SESSION['id']) || ($_SESSION['id'] !== 79)){
@@ -90,9 +90,9 @@ if( (empty($clean['btn_update_check'])) && ($id !== 0) && (empty($clean['btn_upd
      <meta charset="utf-8">
      <meta http-equiv="X-UA-Compatible" content="IE=edge">
      <meta name="viewport" content="width=device-width, initial-scale=1">
-     <link rel="stylesheet" href="css/master.css">
+     <link rel="stylesheet" href="/css/master.css">
      <!-- BootstrapのCSS読み込み -->
-     <link href="css/bootstrap.min.css" rel="stylesheet">
+     <link href="/css/bootstrap.min.css" rel="stylesheet">
      <title>問題登録画面</title>
    </head>
    <body style="margin:10%;">
@@ -199,7 +199,7 @@ if( (empty($clean['btn_update_check'])) && ($id !== 0) && (empty($clean['btn_upd
     <a class="btn btn-primary" href="WorkList.php" role="button">問題集一覧</a>
 
   <?php endif; ?>
-  <script src="js/jquery-3.5.1.min.js"></script>
-  <script src="js/workbook.js"></script>
+  <script src="/js/jquery-3.5.1.min.js"></script>
+  <script src="/js/workbook.js"></script>
   </body>
   </html>
