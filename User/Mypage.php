@@ -82,7 +82,7 @@ if(isset($_SESSION['id'])){
 
         <!-- 未ログイン状態の場合、ゲストログインボタンを表示 -->
         <?php if( !isset( $_SESSION['id'] ) ): ?>
-          <a class="btn btn-info btn-block mb-5" href="GuestLogin.php">ゲストログイン</a>
+          <a class="btn btn-info btn-block mb-5" href="/User/Login/GuestLogin.php">ゲストログイン</a>
         <?php endif;?>
         <div class="tabs container-fluid">
           <div class="row">
@@ -178,8 +178,8 @@ if(isset($_SESSION['id'])){
             部活：<?php echo $_SESSION['club'] ;?>
           </div>
 
-          <a class="btn btn-success mt-3" href="UserEdit.php">会員情報の変更</a>
-          <a class="btn btn-danger mt-3" href="Logout.php">ログアウト</a>
+          <a class="btn btn-success mt-3" href="/User/UserEdit.php">会員情報の変更</a>
+          <a class="btn btn-danger mt-3" href="/User/Logout.php">ログアウト</a>
         <?php endif; ?>
         </div>
 
