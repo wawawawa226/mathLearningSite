@@ -88,9 +88,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- BootstrapのCSS読み込み -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/master.css" rel="stylesheet">
-    <link href="css/signup.css" rel="stylesheet">
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/master.css" rel="stylesheet">
+    <link href="/css/signup.css" rel="stylesheet">
     <title>数学登録画面</title>
   </head>
   <body>
