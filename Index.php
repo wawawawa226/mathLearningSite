@@ -1,6 +1,7 @@
 <?php
 session_start();
 require_once dirname(__FILE__) . '/Commons/Common.php';
+require_once dirname(__FILE__) .'/Explanations/ExplanationsData.php';
  ?>
 
  <!DOCTYPE html>
@@ -22,7 +23,29 @@ require_once dirname(__FILE__) . '/Commons/Common.php';
 
      <div class="mypage-contents wrapper">
        <main>
-         <p>コンテンツ</p>
+         <!-- 未ログイン状態の場合、ゲストログインボタンを表示 -->
+         <?php if( !isset( $_SESSION['id'] ) ): ?>
+           <a class="btn btn-info btn-block mb-5" href="/User/Login/GuestLogin.php">ゲストログイン</a>
+         <?php endif;?>
+
+         <div class="container shadow-sm mb-5 mt-3 p-3 border text-center" >
+           <p class="text-secondary">会員登録をすると学習メモを保存することができます。<br>
+             まずはゲストログインでお試しください！
+           </p>
+         </div>
+
+         <h3 class="graybold">新着記事</h3>
+            <div class="container-fluid">
+              <div class="row">
+                <?php foreach($mathUnits as $mathUnit):?>
+                  <div class="col-sm-6 mt-5 btn">
+                    <a href="<?php echo $mathUnit->url?>"><h3 class="text-center mb-10 graybold"><?php echo $mathUnit->unitName;?></h3></a>
+                    <a href="<?php echo $mathUnit->url?>"><img class="shadow-sm img-thumbnail w-100" src="<?php echo $mathUnit->image?>"></a>
+                  </div>
+                <?php endforeach?>
+
+              </div>
+            </div>
        </main>
 
        <aside>
