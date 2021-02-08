@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once ('Common.php');
+require_once dirname(__FILE__) . '/../Commons/Common.php';
 $output = '';
 if (isset($_SESSION['id'])) {
   $output = 'Logoutしました。';

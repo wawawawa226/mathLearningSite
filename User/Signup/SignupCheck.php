@@ -1,6 +1,6 @@
 <?php
   session_start();
-  require_once ('Common.php');
+  require_once dirname(__FILE__) . '/../../Commons/Common.php';
   if(isset($_SESSION['id'])){
     $_SESSION['message'] = "既にログインしています。";
     header("Location:" . $url_mypage );

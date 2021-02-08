@@ -1,5 +1,5 @@
 <?php
-require_once ('Common.php');
+require_once dirname(__FILE__) . '/../../Commons/Common.php';
 session_start();
 if(isset($_SESSION['id'])){
   $_SESSION['message'] = "既にログインしています。";
@@ -79,8 +79,8 @@ if(!empty($_POST["name"]) ){
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- BootstrapのCSS読み込み -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/master.css" rel="stylesheet">
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/master.css" rel="stylesheet">
     <title>登録<?php echo $judge;?> </title>
   </head>
   <body>
@@ -88,17 +88,17 @@ if(!empty($_POST["name"]) ){
     <?php if ($pageFlag === 0): ?>
 
     <header>
-      <?php include __DIR__ . '/Header.php';?>
+      <?php include __DIR__ . '/../../Commons/Header.php';?>
     </header>
 
     <div class="mypage-contents wrapper">
     <main>
     <h3 class="graybold">登録が完了しました</h3>
     <p>はじめまして、<?php echo $_SESSION['name']."さん" ; ?></p>
-    <a class="btn btn-primary" href="Mypage.php" role="button">マイページへ</a>
+    <a class="btn btn-primary" href="/User/Mypage.php" role="button">マイページへ</a>
   </main>
   <aside>
-    <?php include __DIR__ . '/Sidebar.php';?>
+    <?php include __DIR__ . '/../../Commons/Sidebar.php';?>
   </aside>
     </div>
 
@@ -106,11 +106,11 @@ if(!empty($_POST["name"]) ){
   <?php else: ?>
     <div class="form-box">
       <p>エラーが発生しました。</p>
-      <a href="Mypage.php" class="btn btn-outline-warning">マイページへ戻る</a>
+      <a href="/User/Mypage.php" class="btn btn-outline-warning">マイページへ戻る</a>
   </div>
   <?php endif; ?>
 
-  <script src="js/jquery-3.5.1.min.js"></script>
-  <script src="js/signup.js"></script>
+  <script src="/js/jquery-3.5.1.min.js"></script>
+  <script src="/js/signup.js"></script>
   </body>
 </html>

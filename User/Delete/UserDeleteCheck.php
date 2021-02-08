@@ -1,5 +1,5 @@
 <?php
-require_once ('Common.php');
+require_once dirname(__FILE__) . '/../../Commons/Common.php';
 session_start();
 if(isset($_SESSION['id'])){
   $_SESSION['user_delete_id'] = $_SESSION['id'];
@@ -19,18 +19,18 @@ if(isset($_SESSION['id'])){
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="css/master.css">
-    <link rel="stylesheet" href="css/list.css">
-    <link rel="stylesheet" href="css/list-user.css">
     <!-- BootstrapのCSS読み込み -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/master.css">
+    <link rel="stylesheet" href="/css/list.css">
+    <link rel="stylesheet" href="/css/list-user.css">
     <title>ユーザー削除確認画面</title>
   </head>
   <body style="margin:5%;">
     このデータを本当に削除しますか？
 
   <a class="btn btn-danger" href="UserDeleteDone.php" role="button">はい</a>
-  <a class="btn btn-primary" href="UserList.php" role="button">いいえ</a>
+  <a class="btn btn-primary" href="/User/Mypage.php" role="button">いいえ</a>
 
 
     <table border="1">
@@ -62,7 +62,7 @@ if(isset($_SESSION['id'])){
 
 
     </table>
-    <script src="js/jquery-3.5.1.min.js"></script>
-    <script src="js/workbook.js"></script>
+    <script src="/js/jquery-3.5.1.min.js"></script>
+    <script src="/js/workbook.js"></script>
   </body>
 </html>

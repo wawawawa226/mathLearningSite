@@ -1,5 +1,5 @@
 <?php
-require_once ('Common.php');
+require_once dirname(__FILE__) . '/../../Commons/Common.php';
 session_start();
 if(isset($_SESSION['id'])){
   $id = $_SESSION['id'];
@@ -20,9 +20,9 @@ if(isset($_SESSION['id'])){
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- BootstrapのCSS読み込み -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/master.css">
-    <link href="css/signup.css" rel="stylesheet">
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/master.css">
+    <link href="/css/signup.css" rel="stylesheet">
     <title>数学更新画面</title>
   </head>
   <body>
@@ -161,7 +161,7 @@ if(isset($_SESSION['id'])){
 
     </form>
   </div>
-  <script src="js/jquery-3.5.1.min.js"></script>
-  <script src="js/signup.js"></script>
+  <script src="/js/jquery-3.5.1.min.js"></script>
+  <script src="/js/signup.js"></script>
 </body>
 </html>

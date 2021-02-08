@@ -1,5 +1,5 @@
 <?php
-require_once ('Common.php');
+require_once dirname(__FILE__) . '/../../Commons/Common.php';
 session_start();
 $check_data_mail = "";
 // nameが空でない、つまり正規のルートでアクセスされた場合に登録処理を行う。
@@ -43,18 +43,18 @@ if(isset($_POST['name']) && isset($_SESSION['id']) ){
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- BootstrapのCSS読み込み -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/master.css" rel="stylesheet">
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/master.css" rel="stylesheet">
     <title>更新<?php echo $judge;?> </title>
   </head>
   <body>
 <!-- データ登録が完了しなかったとき -->
     <div class="form-box">
       <p>エラーが発生しました。</p>
-      <a href="Mypage.php" class="btn btn-outline-warning">マイページへ戻る</a>
+      <a href="/User/Mypage.php" class="btn btn-outline-warning">マイページへ戻る</a>
     </div>
 
-    <script src="js/jquery-3.5.1.min.js"></script>
-    <script src="js/signup.js"></script>
+    <script src="/js/jquery-3.5.1.min.js"></script>
+    <script src="/js/signup.js"></script>
   </body>
 </html>

@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once ('Common.php');
+require_once dirname(__FILE__) . '/../../Commons/Common.php';
 if(isset($_SESSION['id'])){
   $_SESSION['message'] = "既にログインしています。";
   header("Location:" . $url_mypage );
@@ -31,14 +31,14 @@ $error = "";
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- BootstrapのCSS読み込み -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-    <link href="css/master.css" rel="stylesheet">
-    <link href="css/login.css" rel="stylesheet">
+    <link href="/css/master.css" rel="stylesheet">
+    <link href="/css/login.css" rel="stylesheet">
     <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
     <title>ログイン画面</title>
   </head>
   <body>
       <header>
-        <?php include __DIR__ . '/Header.php';?>
+        <?php include __DIR__ . '/../../Commons/Header.php';?>
       </header>
 
 <div class="form-box container">
@@ -66,7 +66,7 @@ $error = "";
    </div>
   <div class="form-box-sub">
     <h3>初めてのご利用ですか?</h3><br>
-   <button class="btn btn-outline-secondary btn-block"><a href="Signup.php">新規登録はこちら</a></button>
+   <button class="btn btn-outline-secondary btn-block"><a href="../Signup/Signup.php">新規登録はこちら</a></button>
  </div>
  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>

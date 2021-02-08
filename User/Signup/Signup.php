@@ -1,6 +1,6 @@
 <?php
   session_start();
-  require_once ('Common.php');
+  require_once dirname(__FILE__) . '/../../Commons/Common.php';
   if(isset($_SESSION['id'])){
     $_SESSION['message'] = "既にログインしています。";
     header("Location:" . $url_mypage );
@@ -57,14 +57,14 @@ $caution ="<i class=\"fas fa-exclamation-triangle\"></i>";
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- BootstrapのCSS読み込み -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-    <link href="css/master.css" rel="stylesheet">
-    <link href="css/signup.css" rel="stylesheet">
+    <link href="/css/master.css" rel="stylesheet">
+    <link href="/css/signup.css" rel="stylesheet">
     <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
     <title>登録画面</title>
   </head>
   <body>
       <header>
-        <?php include __DIR__ . '/Header.php';?>
+        <?php include __DIR__ . '/../../Commons/Header.php';?>
       </header>
     <div class="form-box container">
       <form action="SignupCheck.php" method="post" id="sign_up" name="su">
