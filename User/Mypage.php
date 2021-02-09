@@ -107,7 +107,7 @@ if(isset($_SESSION['id'])){
             <!-- DBから取得したメモを全て取り出す -->
             <?php while($result = $prepare->fetch(PDO::FETCH_ASSOC)) { ?>
               <!-- 編集用に、メモ自体をボタンにしておく -->
-              <div type="button" class="container shadow-sm mt-3 p-3 border" data-toggle="modal" data-target="#modal<?php echo $result['memo_id']; ?>">
+              <div type="button" class="container shadow-sm mt-3 p-3 border d-block text-truncate" data-toggle="modal" data-target="#modal<?php echo $result['memo_id']; ?>">
                 <?php
                 // メモの内容をサニタイズしておく
                   echo htmlspecialchars($result['memo'], ENT_QUOTES);
