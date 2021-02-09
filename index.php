@@ -23,16 +23,16 @@ require_once dirname(__FILE__) .'/Explanations/ExplanationsData.php';
 
      <div class="mypage-contents wrapper">
        <main>
-         <!-- 未ログイン状態の場合、ゲストログインボタンを表示 -->
-         <?php if( !isset( $_SESSION['id'] ) ): ?>
-           <a class="btn btn-info btn-block mb-5" href="/User/Login/GuestLogin.php">ゲストログイン</a>
-         <?php endif;?>
 
          <div class="container shadow-sm mb-5 mt-3 p-3 border text-center" >
            <p class="text-secondary">会員登録をすると学習メモを保存することができます。<br>
              まずはゲストログインでお試しください！
            </p>
          </div>
+         <!-- 未ログイン状態の場合、ゲストログインボタンを表示 -->
+         <?php if( !isset( $_SESSION['id'] ) ): ?>
+           <a class="btn btn-info btn-block mb-5" href="/User/Login/GuestLogin.php">ゲストログイン</a>
+         <?php endif;?>
 
          <h3 class="graybold">新着記事</h3>
             <div class="container-fluid">
