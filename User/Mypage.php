@@ -95,7 +95,10 @@ if(isset($_SESSION['id'])){
         </div>
 
         <!-- 学習ノート表示部分 -->
-        <div class="item tab-content tab-content-checked overflow-auto" id="content-note">
+        <div class="tab-content-checked tab-content mt-3" id="content-note">
+
+        <h3 class="text-center graybold">メモをクリックすると編集や削除ができます</h3>
+        <div class="item overflow-auto">
           <!-- ログイン済みの場合のみ、メモを表示するかどうか判断する -->
         <?php if(isset($_SESSION['id'])):?>
           <!-- メモの数が0でない場合のみ、メモを表示する -->
@@ -104,7 +107,7 @@ if(isset($_SESSION['id'])){
             <!-- DBから取得したメモを全て取り出す -->
             <?php while($result = $prepare->fetch(PDO::FETCH_ASSOC)) { ?>
               <!-- 編集用に、メモ自体をボタンにしておく -->
-              <div type="button" class="container shadow-sm mt-3 p-3 border" data-toggle="modal" data-target="#modal<?php echo $result['memo_id']; ?>">
+              <div type="button" class="container shadow-sm mt-3 p-3 border d-block text-truncate" data-toggle="modal" data-target="#modal<?php echo $result['memo_id']; ?>">
                 <?php
                 // メモの内容をサニタイズしておく
                   echo htmlspecialchars($result['memo'], ENT_QUOTES);
@@ -152,6 +155,8 @@ if(isset($_SESSION['id'])){
           <p class="content-none"><i class="fas fa-book-open"></i> ログインするとメモを保存できます。</p>
         <?php endif;?>
         </div>
+      </div>
+
 
         <div class="item tab-content container shadow-sm mt-3 p-3 border h-auto" id="content-info">
 
