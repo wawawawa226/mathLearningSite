@@ -28,7 +28,7 @@ $memo_display = "block" ;
         <!-- パンくずリスト -->
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="../Mypage.php">マイページ</a></li>
+            <li class="breadcrumb-item"><a href="/User/Mypage.php">マイページ</a></li>
             <li class="breadcrumb-item"><a href="../Explanations.php">中１数学</a></li>
             <li class="breadcrumb-item active" aria-current="page">正負の数</li>
           </ol>
