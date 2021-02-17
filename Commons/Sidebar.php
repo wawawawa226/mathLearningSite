@@ -1,7 +1,8 @@
 <?php
-if(!isset($memo_display)){
-  $memo_display = "none";
-}
+// if(!isset($memo_display)){
+// $memo_display = "none";
+// }
+$memo_display = "block";
 
 if(!isset($_SESSION['id'])){
   // 未ログイン状態

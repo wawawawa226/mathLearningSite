@@ -29,15 +29,19 @@ if(isset($_SESSION['id'])){
       <div class="collapse navbar-collapse" id="navmenu1">
         <div class="navbar-nav">
           <?php if(isset($_SESSION['id'])):?>
-          <!-- ログインしている場合 -->
-          <span class="nav-item nav-link">こんにちは！<?php echo $userName ;?>さん</span>
+            <!-- ログインしている場合 -->
+            <span class="nav-item nav-link">こんにちは！<?php echo $userName ;?>さん</span>
           <?php else:?>
-          <!-- ログインしていない場合、ログインリンクを設置 -->
-          <a class="nav-item nav-link" href="/User/Login/LoginForm.php">ログイン/新規登録</a>
+            <!-- ログインしていない場合、ログインリンクを設置 -->
+            <a class="nav-item nav-link" href="/User/Login/LoginForm.php">ログイン/新規登録</a>
           <?php endif;?>
-          <a class="nav-item nav-link" href="/User/Mypage.php">マイページ</a>
-          <a class="nav-item nav-link" href="/Explanations/Explanations.php">学習する</a>
-          <a class="nav-item nav-link" href="/Work/Answer.php">テストを受ける</a>
+            <a class="nav-item nav-link" href="/User/Mypage.php">マイページ</a>
+            <a class="nav-item nav-link" href="/Explanations/Explanations.php">学習する</a>
+            <a class="nav-item nav-link" href="/Work/Answer.php">テストを受ける</a>
+          <?php if(isset($_SESSION['id'])):?>
+            <!-- ログインしている場合、ログアウトリンクを設置 -->
+            <a class="nav-item nav-link text-right" href="/User/Logout.php">ログアウト</a>
+          <?php endif;?>
         </div>
       </div>
     </div>

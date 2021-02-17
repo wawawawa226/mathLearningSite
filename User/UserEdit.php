@@ -45,7 +45,7 @@ if(isset($_SESSION['id'])){
         </div>
 
         <div class="btn-toolbar">
-          <div class="btn-group mx-auto">
+          <div class="mx-auto">
 
           <?php if( $page_flag === 1 ): ?>
             <!-- 通常のログイン状態の場合 -->
