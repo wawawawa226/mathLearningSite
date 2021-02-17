@@ -14,7 +14,9 @@ https://nijimath.com/ <br>
 
 # 使用技術
 PHP 7.4<br>
-MySQL 5.6
+MySQL 5.6<br>
+Git<br>
+GitHub<br>
 
 # 機能一覧
 <ul>
