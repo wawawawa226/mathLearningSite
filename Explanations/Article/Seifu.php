@@ -38,11 +38,11 @@ session_start();
         <div class="card shadow-sm mb-5">
           <div class="card-header">用語集</div>
           <div class="card-body">
-            <a href="">負の数</a>
-            <a href="">符号</a>
-            <a href="">自然数</a>
-            <a href="">絶対値</a>
-            <a href="">不等号</a>
+            負の数
+            符号
+            自然数
+            絶対値
+            不等号
           </div>
         </div>
 
@@ -52,9 +52,9 @@ session_start();
             <div class="list-group">
               <a class="list-group-item list-group-item-action" href="#plus">1.正負の数とは？</a>
               <a class="list-group-item list-group-item-action" href="#minus">2.負の数の文章問題</a>
-              <a class="list-group-item list-group-item-action" href="#">3.絶対値とは？</a>
+              <!-- <a class="list-group-item list-group-item-action" href="#">3.絶対値とは？</a>
               <a class="list-group-item list-group-item-action" href="#">4.正負の数の加法・減法</a>
-              <a class="list-group-item list-group-item-action" href="#">5.正負の数の乗法・除法</a>
+              <a class="list-group-item list-group-item-action" href="#">5.正負の数の乗法・除法</a> -->
           </div>
         </div>
 
@@ -66,7 +66,7 @@ session_start();
           <p>（図を挿入,線分図のアニメーション？バー）</p>
           <p>また整数には、負の整数、０、正の整数があり、特に正の整数を自然数と呼びます。</p>
           <p>図を挿入</p>
-          <p><a href="#">演習問題へ</a></p>
+          <!-- <p><a href="#">演習問題へ</a></p> -->
         </div>
 
         <h3 id="minus" class="graybold">負の数の文章問題</h3>
@@ -91,11 +91,11 @@ session_start();
                 →今年は300万円の<span id="w3"> </span>があった。</p>
               <button type="button" class="btn btn-primary "id="a3">答えを表示</button>
 
-              <p><a href="#">演習問題へ</a></p>
+              <!-- <p><a href="#">演習問題へ</a></p> -->
           </div>
 
           <!-- ページネーション -->
-          <nav aria-label="Page navigation">
+          <!-- <nav aria-label="Page navigation">
             <ul class="pagination justify-content-center">
               <li class="page-item">
                 <a class="page-link" href="#" aria-label="Previous">
@@ -111,7 +111,7 @@ session_start();
                 </a>
               </li>
             </ul>
-          </nav>
+          </nav> -->
 
       </main>
 
