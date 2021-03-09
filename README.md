@@ -22,17 +22,17 @@ GitHub<br>
 
 # すべてのユーザーが使用できる機能
 <ul>
-<li>ユーザー登録・ログイン機能</li>
-<li>ゲストログイン機能</li>
-<li>ランダムテスト機能（Ajax）</li>
-<li>メモ保存機能(Ajax)</li>
+  <li>ユーザー登録・ログイン機能</li>
+  <li>ゲストログイン機能</li>
+  <li>ランダムテスト機能（Ajax）</li>
+  <li>メモ保存機能(Ajax)</li>
 </ul>
 
 # 管理者ユーザーが使用できる機能
 <ul>
-<li>ユーザー一覧表示機能</li>
-<li>問題一覧表示機能</li>
-<li>問題作成機能</li>
+  <li>ユーザー一覧表示機能</li>
+  <li>問題一覧表示機能</li>
+  <li>問題作成機能</li>
 </ul>
 
 # 目指した課題解決
@@ -41,32 +41,32 @@ GitHub<br>
 
 # これからの展望
 <ul>
-<li>解説ページの作り込み</li>
-<li>テストの作り込み</li>
-<li>得点を保存できる機能を実装</li>
-<li>質問機能を実装（質問内容に応じて解説記事を編集していく）</li>
+  <li>解説ページの作り込み</li>
+  <li>テストの作り込み</li>
+  <li>得点を保存できる機能を実装</li>
+  <li>質問機能を実装（質問内容に応じて解説記事を編集していく）</li>
 </ul>
 
 # 主に参考にした書籍及びWEBサイト
+
 PHP
 <ul>
-<li>PHPの絵本</li>
-<li>PHP逆引きレシピ</li>
-<li><a href="https://gray-code.com/">GRAY CODE</a></li>
-<li><a href="https://qiita.com/mpyw/items/b00b72c5c95aac573b71">PHPでデータベースに接続するときのまとめ(Qiita)</a></li>
+  <li>PHPの絵本</li>
+  <li>PHP逆引きレシピ</li>
+  <li><a href="https://gray-code.com/">GRAY CODE</a></li>
+  <li><a href="https://qiita.com/mpyw/items/b00b72c5c95aac573b71">PHPでデータベースに接続するときのまとめ(Qiita)</a></li>
 </ul>
+
 MySQL
 <ul>
-<li><a href="https://qiita.com/mpyw/items/b00b72c5c95aac573b71">PHPでデータベースに接続するときのまとめ(Qiita)</a></li>
+  <li><a href="https://qiita.com/mpyw/items/b00b72c5c95aac573b71">PHPでデータベースに接続するときのまとめ(Qiita)</a></li>
 </ul>
-<ul>
-<li>PHPの絵本</li>
-<li>PHP逆引きレシピ</li>
-</ul>
+
 jQuery
 <ul>
   <li>jQueryデザインブック</li>
 </ul>
+
 Git/GitHub
 <ul>
   <li>Git：はじめてのGitとGitHub(Udemy)</li>
