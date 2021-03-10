@@ -16,7 +16,7 @@ https://nijimath.com/ <br>
 PHP 7.4<br>
 MySQL 5.6<br>
 JavaScript(jQuery)<br>
-LOLOPP!レンタルサーバー（スタンダード）<br>
+LOLIPOP!レンタルサーバー（スタンダード）<br>
 Git<br>
 GitHub<br>
 
