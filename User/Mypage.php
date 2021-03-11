@@ -35,10 +35,10 @@ if(isset($_SESSION['id'])){
   $prepare = $prepare->fetch(PDO::FETCH_ASSOC);
   if($prepare["count(*)"] == 0){
     // メモの数が0の場合、メモの代わりにメッセージを表示する
-    $memo_check = "false";
+    $memo_check = 0;
   }else{
     // メモの数が0でない場合、メモを取得する
-    $memo_check = "true";
+    $memo_check = 1;
     $prepare = $dbh->prepare("SELECT * FROM memo WHERE user_id = :id ");
     $prepare->bindValue(':id',(int)$_SESSION['id'],PDO::PARAM_INT);
     $prepare->execute();
@@ -102,7 +102,7 @@ if(isset($_SESSION['id'])){
           <!-- ログイン済みの場合のみ、メモを表示するかどうか判断する -->
         <?php if(isset($_SESSION['id'])):?>
           <!-- メモの数が0でない場合のみ、メモを表示する -->
-          <?php if($memo_check == "true"):?>
+          <?php if($memo_check == 1):?>
 
             <!-- DBから取得したメモを全て取り出す -->
             <?php while($result = $prepare->fetch(PDO::FETCH_ASSOC)) { ?>
